@@ -73,9 +73,7 @@
 				<th>关键字</th>
 				<th>描述</th>
 				<th>创建时间</th>
-				<th>创建人</th>
 				<th>更新时间</th>
-				<th>更新人</th>
 				<th>状态码</th>
 				<th>图片地址</th>
 				<th>备注信息</th>
@@ -105,13 +103,7 @@
 					<fmt:formatDate value="${testSeo.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
 				</td>
 				<td>
-					${testSeo.createBy.id}
-				</td>
-				<td>
 					<fmt:formatDate value="${testSeo.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
-				</td>
-				<td>
-					${testSeo.updateBy.id}
 				</td>
 				<td>
 					${fns:getDictLabel(testSeo.statusCode, 'status_code', '')}
