@@ -12,7 +12,7 @@
 		<param-value>classpath*:/spring-context*.xml</param-value>
 	</context-param>
 	<listener>
-		<listener-class>com.thinkgem.jeesite.modules.sys.listener.WebContextListener</listener-class>
+		<listener-class>com.baidu.cms.modules.sys.listener.WebContextListener</listener-class>
 	</listener>
 	<listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>  
@@ -51,7 +51,7 @@
 	<!-- PageCache, cache .html suffix.
 	<filter>
 		<filter-name>PageCacheFilter</filter-name>
-		<filter-class>com.thinkgem.jeesite.common.filter.PageCachingFilter</filter-class>
+		<filter-class>PageCachingFilter</filter-class>
 		<init-param>
 			<param-name>cacheName</param-name>
 			<param-value>pageCachingFilter</param-value>
@@ -98,7 +98,7 @@
 	<!-- Activiti diagram-view callback filter-->
 	<!--<filter>
 		<filter-name>JSONPFilter</filter-name>
-		<filter-class>com.thinkgem.jeesite.modules.act.rest.servlet.JsonpCallbackFilter</filter-class>
+		<filter-class>com.baidu.cms.modules.act.rest.servlet.JsonpCallbackFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>JSONPFilter</filter-name>
@@ -122,7 +122,7 @@
 	<!-- CKFinder -->
 	<servlet>
 		<servlet-name>CKFinderConnectorServlet</servlet-name>
-		<servlet-class>com.thinkgem.jeesite.common.web.CKFinderConnectorServlet</servlet-class>
+		<servlet-class>com.baidu.cms.common.web.CKFinderConnectorServlet</servlet-class>
 		<init-param>
 			<param-name>XMLConfig</param-name>
 			<param-value>/WEB-INF/ckfinder.xml</param-value>
@@ -133,7 +133,7 @@
 		</init-param>
 		<init-param>
 			<param-name>configuration</param-name>
-			<param-value>com.thinkgem.jeesite.common.web.CKFinderConfig</param-value>
+			<param-value>com.baidu.cms.common.web.CKFinderConfig</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -161,7 +161,7 @@
 	<!-- Userfiles download -->
 	<servlet>
 	  	<servlet-name>UserfilesDownloadServlet</servlet-name>
-	  	<servlet-class>com.thinkgem.jeesite.common.servlet.UserfilesDownloadServlet</servlet-class>
+	  	<servlet-class>com.baidu.cms.common.servlet.UserfilesDownloadServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 	  	<servlet-name>UserfilesDownloadServlet</servlet-name>
@@ -171,7 +171,7 @@
 	<!-- Validate code -->
 	<servlet>
 		<servlet-name>ValidateCodeServlet</servlet-name>
-		<servlet-class>com.thinkgem.jeesite.common.servlet.ValidateCodeServlet</servlet-class>
+		<servlet-class>com.baidu.cms.common.servlet.ValidateCodeServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ValidateCodeServlet</servlet-name>

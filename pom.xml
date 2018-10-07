@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>com.thinkgem.jeesite</groupId>
+	<groupId>com.baidu.cms</groupId>
 	<artifactId>my-jeesite</artifactId>
 	<version>1.2.7</version>
 	<packaging>war</packaging>
@@ -553,7 +553,7 @@
 		
 		<!-- 自定义jar依赖包
 		<dependency>
-			<groupId>com.thinkgem.jeesite</groupId>
+			<groupId>com.baidu.cms</groupId>
 			<artifactId>test-core</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
@@ -654,7 +654,7 @@
 							<finalName>jeesite</finalName>
 							<outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib</outputDirectory>
 							<includes>
-					        	<include>com/thinkgem/jeesite/**</include>
+					        	<include>com/baidu/cms/**</include>
 					       	</includes>
 						</configuration>
 					</execution>
@@ -709,7 +709,7 @@
 				<version>2.4</version>
 				<configuration>
 					<packagingExcludes>
-						<!-- WEB-INF/classes/com/thinkgem/jeesite/** -->
+						<!-- WEB-INF/classes/com/baidu/cms/** -->
 						WEB-INF/classes/org/apache/ibatis/**,
 						WEB-INF/classes/org/mybatis/spring/**
 					</packagingExcludes>
