@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.seo.dao.TestSeoDao">
+    
+	<sql id="testSeoColumns">
+		a.id AS "id",
+		a.url_path AS "urlPath",
+		a.seo_title AS "seoTitle",
+		a.seo_keyword AS "seoKeyword",
+		a.seo_desc AS "seoDesc",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy.id",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy.id",
+		a.status_code AS "statusCode",
+		a.seo_img_json AS "seoImgJson",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="testSeoJoins">
+	</sql>
+    
+	<select id="get" resultType="TestSeo">
+		SELECT 
+			<include refid="testSeoColumns"/>
+		FROM test_seo a
+		<include refid="testSeoJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="TestSeo">
+		SELECT 
+			<include refid="testSeoColumns"/>
+		FROM test_seo a
+		<include refid="testSeoJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="urlPath != null and urlPath != ''">
+				AND a.url_path = #{urlPath}
+			</if>
+			<if test="seoTitle != null and seoTitle != ''">
+				AND a.seo_title = #{seoTitle}
+			</if>
+			<if test="seoKeyword != null and seoKeyword != ''">
+				AND a.seo_keyword = #{seoKeyword}
+			</if>
+			<if test="seoDesc != null and seoDesc != ''">
+				AND a.seo_desc = #{seoDesc}
+			</if>
+			<if test="createDate != null and createDate != ''">
+				AND a.create_date = #{createDate}
+			</if>
+			<if test="createBy != null and createBy.id != null and createBy.id != ''">
+				AND a.create_by = #{createBy.id}
+			</if>
+			<if test="updateDate != null and updateDate != ''">
+				AND a.update_date = #{updateDate}
+			</if>
+			<if test="updateBy != null and updateBy.id != null and updateBy.id != ''">
+				AND a.update_by = #{updateBy.id}
+			</if>
+			<if test="seoImgJson != null and seoImgJson != ''">
+				AND a.seo_img_json = #{seoImgJson}
+			</if>
+			<if test="remarks != null and remarks != ''">
+				AND a.remarks = #{remarks}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="TestSeo">
+		SELECT 
+			<include refid="testSeoColumns"/>
+		FROM test_seo a
+		<include refid="testSeoJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO test_seo(
+			url_path,
+			seo_title,
+			seo_keyword,
+			seo_desc,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			status_code,
+			seo_img_json,
+			remarks,
+			del_flag
+		) VALUES (
+			#{urlPath},
+			#{seoTitle},
+			#{seoKeyword},
+			#{seoDesc},
+			#{createDate},
+			#{createBy.id},
+			#{updateDate},
+			#{updateBy.id},
+			#{statusCode},
+			#{seoImgJson},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE test_seo SET 	
+			url_path = #{urlPath},
+			seo_title = #{seoTitle},
+			seo_keyword = #{seoKeyword},
+			seo_desc = #{seoDesc},
+			status_code = #{statusCode},
+			seo_img_json = #{seoImgJson},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE test_seo SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>
