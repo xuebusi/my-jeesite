@@ -10,7 +10,7 @@
 		properties="peerDiscovery=automatic,multicastGroupAddress=230.0.0.1, multicastGroupPort=4446" />
 	<cacheManagerPeerListenerFactory class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory" />
 
-	<diskStore path="../temp/jeesite/ehcache" />
+	<diskStore path="../temp0/jeesite/ehcache" />
 
 	<!-- 默认缓存配置. -->
 	<defaultCache maxEntriesLocalHeap="1000" eternal="false" timeToIdleSeconds="300" timeToLiveSeconds="600"
@@ -31,11 +31,6 @@
     
     <!-- 用户缓存 -->
 	<cache name="corpCache" maxEntriesLocalHeap="1000" eternal="true" overflowToDisk="true" statistics="true">
-		<cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"/>
-    </cache>
-    
-	<!-- 内容管理模块缓存 -->
-	<cache name="cmsCache" maxEntriesLocalHeap="100" eternal="true" overflowToDisk="true" statistics="true">
 		<cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"/>
     </cache>
 	
