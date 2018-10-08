@@ -11,7 +11,7 @@
  Target Server Version : 50641
  File Encoding         : 65001
 
- Date: 07/10/2018 21:39:33
+ Date: 08/10/2018 09:56:34
 */
 
 SET NAMES utf8mb4;
@@ -1484,13 +1484,6 @@ CREATE TABLE `sys_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='日志表';
 
 -- ----------------------------
--- Records of sys_log
--- ----------------------------
-BEGIN;
-INSERT INTO `sys_log` VALUES ('f53b35d209d6433298052ceb2ec62554', '1', '官网CMS-SEO管理-官网SEO', '1', '2018-10-07 21:39:09', '0:0:0:0:0:0:0:1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36', '/a/seo/testSeo', 'GET', '', '');
-COMMIT;
-
--- ----------------------------
 -- Table structure for sys_mdict
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_mdict`;
@@ -2132,7 +2125,7 @@ CREATE TABLE `sys_user` (
 -- Records of sys_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user` VALUES ('1', '1', '2', 'thinkgem', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0001', '系统管理员', 'thinkgem@163.com', '8675', '8675', NULL, '/userfiles/1/images/photo/2018/10/93a27ccc.jpeg', '0:0:0:0:0:0:0:1', '2018-10-07 21:31:18', '1', '1', '2013-05-27 08:00:00', '1', '2018-10-07 17:47:08', '最高管理员', '0');
+INSERT INTO `sys_user` VALUES ('1', '1', '2', 'admin', 'd56af6a10cb0cf3fd022bf30b5e93da0e07ab22175e2a0429d11d279', '0001', '系统管理员', 'xbs1019@126.com', '17610639158', '17610639158', NULL, '/userfiles/1/images/photo/2018/10/05de1b07.jpeg', '0:0:0:0:0:0:0:1', '2018-10-08 09:48:20', '1', '1', '2013-05-27 08:00:00', '1', '2018-10-08 09:41:51', '最高管理员', '0');
 INSERT INTO `sys_user` VALUES ('10', '7', '11', 'jn_jsb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0010', '济南技术部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_user` VALUES ('11', '12', '13', 'lc_admin', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0011', '济南历城领导', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_user` VALUES ('12', '12', '18', 'lx_admin', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0012', '济南历下领导', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
