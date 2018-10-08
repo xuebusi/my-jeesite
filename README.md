@@ -19,7 +19,10 @@
     解决办法是修改项目resources/cache目录下面的两个和ehcache有关的配置文件，将里面的如下路径随便修改成一个新的路径然后重启系统即可:
     <diskStore path="../temp/jeesite/ehcache" />
 
-
+踩坑4:
+    本地启动改项目后使用http://localhost:8081/druid访问是没有问题的，如果使用IP访问(比如http://172.24.148.53:8081/druid)就提示如下信息:
+    Sorry, you are not permitted to view this page.
+    原因是web.xml中关于druid访问路径默认配置的是127.0.0.1,修改DruidStatView中的<param-value>为本机ip地址或域名重启项目即可。
 
 
 
