@@ -22,28 +22,39 @@
 	<context:component-scan base-package="com.baidu.cms"><!-- base-package 如果多个，用“,”分隔 -->
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
-	
- 	<!-- MyBatis begin -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="typeAliasesPackage" value="com.baidu.cms"/>
-        <property name="typeAliasesSuperType" value="com.baidu.cms.common.persistence.BaseEntity"/>
-        <property name="mapperLocations" value="classpath:/mappings/**/*.xml"/>
+
+	<!-- MyBatis begin -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="typeAliasesPackage" value="com.baidu.cms"/>
+		<property name="typeAliasesSuperType" value="com.baidu.cms.common.persistence.BaseEntity"/>
+		<property name="mapperLocations" value="classpath:/mappings/**/*.xml"/>
 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
-    </bean>
-    
-    <!-- 扫描basePackage下所有以@MyBatisDao注解的接口 -->
-    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-        <property name="basePackage" value="com.baidu.cms"/>
-        <property name="annotationClass" value="com.baidu.cms.common.persistence.annotation.MyBatisDao"/>
-    </bean>
-    
-    <!-- 定义事务 -->
+	</bean>
+
+	<bean id="dataSource" class="com.baidu.cms.common.datasource.CustomerRoutingDataSource">
+		<!-- 这个targetDataSource是必须要注入的 -->
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="MASTER" value-ref="masterDataSource"/>
+				<entry key="SLAVE" value-ref="slaveDataSource"/>
+			</map>
+		</property>
+		<!-- 默认的数据源 -->
+		<property name="defaultTargetDataSource" ref="slaveDataSource"/>
+	</bean>
+
+	<!-- 扫描basePackage下所有以@MyBatisDao注解的接口 -->
+	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+		<property name="basePackage" value="com.baidu.cms"/>
+		<property name="annotationClass" value="com.baidu.cms.common.persistence.annotation.MyBatisDao"/>
+	</bean>
+
+	<!-- 定义事务 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
 	<!-- 配置 Annotation 驱动，扫描@Transactional注解的类定义事务  -->
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
     <!-- MyBatis end -->
@@ -59,42 +70,78 @@
 	<!-- 计划任务配置，用 @Service @Lazy(false)标注类，用@Scheduled(cron = "0 0 2 * * ?")标注方法 -->
     <task:executor id="executor" pool-size="10"/> <task:scheduler id="scheduler" pool-size="10"/>
     <task:annotation-driven scheduler="scheduler" executor="executor" proxy-target-class="true"/>
-    
+
 	<!-- 数据源配置, 使用 BoneCP 数据库连接池 -->
-	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close"> 
+	<bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
 	    <!-- 数据源驱动类可不写，Druid默认会自动根据URL识别DriverClass -->
-	    <property name="driverClassName" value="${jdbc.driver}" />
+	    <property name="driverClassName" value="${master.jdbc.driver}" />
 	    
 		<!-- 基本属性 url、user、password -->
-		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
-		
+		<property name="url" value="${master.jdbc.url}" />
+		<property name="username" value="${master.jdbc.username}" />
+		<property name="password" value="${master.jdbc.password}" />
+
 		<!-- 配置初始化大小、最小、最大 -->
 		<property name="initialSize" value="${jdbc.pool.init}" />
-		<property name="minIdle" value="${jdbc.pool.minIdle}" /> 
+		<property name="minIdle" value="${jdbc.pool.minIdle}" />
 		<property name="maxActive" value="${jdbc.pool.maxActive}" />
-		
+
 		<!-- 配置获取连接等待超时的时间 -->
 		<property name="maxWait" value="60000" />
-		
+
 		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
 		<property name="timeBetweenEvictionRunsMillis" value="60000" />
-		
+
 		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
 		<property name="minEvictableIdleTimeMillis" value="300000" />
-		
+
 		<property name="validationQuery" value="${jdbc.testSql}" />
 		<property name="testWhileIdle" value="true" />
 		<property name="testOnBorrow" value="false" />
 		<property name="testOnReturn" value="false" />
-		
+
 		<!-- 打开PSCache，并且指定每个连接上PSCache的大小（Oracle使用）
 		<property name="poolPreparedStatements" value="true" />
 		<property name="maxPoolPreparedStatementPerConnectionSize" value="20" /> -->
-		
+
 		<!-- 配置监控统计拦截的filters -->
-	    <property name="filters" value="stat" /> 
+	    <property name="filters" value="stat" />
+	</bean>
+
+	<bean id="slaveDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<!-- 数据源驱动类可不写，Druid默认会自动根据URL识别DriverClass -->
+		<property name="driverClassName" value="${slave.jdbc.driver}" />
+
+		<!-- 基本属性 url、user、password -->
+		<property name="url" value="${slave.jdbc.url}" />
+		<property name="username" value="${slave.jdbc.username}" />
+		<property name="password" value="${slave.jdbc.password}" />
+
+		<!-- 配置初始化大小、最小、最大 -->
+		<property name="initialSize" value="${jdbc.pool.init}" />
+		<property name="minIdle" value="${jdbc.pool.minIdle}" />
+		<property name="maxActive" value="${jdbc.pool.maxActive}" />
+
+		<!-- 配置获取连接等待超时的时间 -->
+		<property name="maxWait" value="60000" />
+
+		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+
+		<property name="validationQuery" value="${jdbc.testSql}" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+
+		<!-- 打开PSCache，并且指定每个连接上PSCache的大小（Oracle使用）
+		<property name="poolPreparedStatements" value="true" />
+		<property name="maxPoolPreparedStatementPerConnectionSize" value="20" /> -->
+
+		<!-- 配置监控统计拦截的filters -->
+		<property name="filters" value="stat" />
 	</bean>
 	
 	<!-- 数据源配置, 使用应用服务器的数据库连接池 
