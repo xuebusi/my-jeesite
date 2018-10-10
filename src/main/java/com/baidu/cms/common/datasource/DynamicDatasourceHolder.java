@@ -1,7 +1,5 @@
 package com.baidu.cms.common.datasource;
 
-import org.springframework.util.Assert;
-
 /**
  * 使用ThreadLocal来记录当前线程中的数据源的key
  *
@@ -16,8 +14,8 @@ public class DynamicDatasourceHolder {
      * 设置数据源key
      * @param key
      */
-    public static void putDataSourceKey(String key) {
-        Assert.notNull(key, "DataSource routing key cannot be null");
+    public static void setDataSourceKey(String key) {
+        System.out.println(">>>>>>>>设置数据源key:" + key);
         holder.set(key);
     }
 
@@ -26,21 +24,15 @@ public class DynamicDatasourceHolder {
      * @return
      */
     public static String getDataSourceKey() {
+        System.out.println(">>>>>>>>获取数据源key:" + holder.get());
         return holder.get();
     }
 
     /**
-     * 标记写库
+     * 清除数据源key
      */
-    public static void markMaster(){
-        putDataSourceKey(DataSourceKey.DB_MASTER.name());
-    }
-
-    /**
-     * 标记读库
-     */
-    public static void markSlave(){
-        putDataSourceKey(DataSourceKey.DB_SLAVE.name());
+    public static void clearDataSourceKey() {
+        holder.remove();
     }
 
 }
