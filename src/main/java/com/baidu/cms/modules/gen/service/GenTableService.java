@@ -3,21 +3,25 @@
  */
 package com.baidu.cms.modules.gen.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
+import com.baidu.cms.common.annotation.DataSource;
+import com.baidu.cms.common.datasource.DataSourceEnum;
+import com.baidu.cms.common.datasource.DynamicDatasourceHolder;
 import com.baidu.cms.common.persistence.Page;
 import com.baidu.cms.common.service.BaseService;
 import com.baidu.cms.common.utils.StringUtils;
-import com.baidu.cms.modules.gen.entity.GenTable;
-import com.baidu.cms.modules.gen.entity.GenTableColumn;
-import com.baidu.cms.modules.gen.util.GenUtils;
 import com.baidu.cms.modules.gen.dao.GenDataBaseDictDao;
 import com.baidu.cms.modules.gen.dao.GenTableColumnDao;
 import com.baidu.cms.modules.gen.dao.GenTableDao;
+import com.baidu.cms.modules.gen.entity.GenTable;
+import com.baidu.cms.modules.gen.entity.GenTableColumn;
+import com.baidu.cms.modules.gen.util.GenUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 业务表Service
@@ -25,6 +29,7 @@ import com.baidu.cms.modules.gen.dao.GenTableDao;
  * @version 2013-10-15
  */
 @Service
+@DataSource(DataSourceEnum.MASTER)
 @Transactional(readOnly = true)
 public class GenTableService extends BaseService {
 
@@ -64,7 +69,7 @@ public class GenTableService extends BaseService {
 	
 	/**
 	 * 验证表名是否可用，如果已存在，则返回false
-	 * @param genTable
+	 * @param tableName
 	 * @return
 	 */
 	public boolean checkTableName(String tableName){
@@ -73,7 +78,12 @@ public class GenTableService extends BaseService {
 		}
 		GenTable genTable = new GenTable();
 		genTable.setName(tableName);
-		List<GenTable> list = genTableDao.findList(genTable);
+		List<GenTable> list = new ArrayList<GenTable>();
+		try {
+			list = genTableDao.findList(genTable);
+		} catch (Exception e) {
+			// Nothing to do
+		}
 		return list.size() == 0;
 	}
 	
@@ -85,10 +95,20 @@ public class GenTableService extends BaseService {
 	public GenTable getTableFormDb(GenTable genTable){
 		// 如果有表名，则获取物理表
 		if (StringUtils.isNotBlank(genTable.getName())){
-			
-			List<GenTable> list = genDataBaseDictDao.findTableList(genTable);
+
+			// TODO 如果主库没查到，查从库，待优化
+			List<GenTable> list = null;
+			DataSourceEnum[] enums = DataSourceEnum.values();
+			for (DataSourceEnum e : enums) {
+				DynamicDatasourceHolder.setDataSourceKey(e.getKey());
+				list = genDataBaseDictDao.findTableList(genTable);
+				DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.MASTER.getKey());
+				if (!CollectionUtils.isEmpty(list)) {
+					break;
+				}
+			}
+
 			if (list.size() > 0){
-				
 				// 如果是新增，初始化表属性
 				if (StringUtils.isBlank(genTable.getId())){
 					genTable = list.get(0);
@@ -98,9 +118,19 @@ public class GenTableService extends BaseService {
 					}
 					genTable.setClassName(StringUtils.toCapitalizeCamelCase(genTable.getName()));
 				}
-				
+
 				// 添加新列
-				List<GenTableColumn> columnList = genDataBaseDictDao.findTableColumnList(genTable);
+				// TODO 如果主库没查到，查从库，待优化
+				List<GenTableColumn> columnList = null;
+				for (DataSourceEnum e : enums) {
+					DynamicDatasourceHolder.setDataSourceKey(e.getKey());
+					columnList = genDataBaseDictDao.findTableColumnList(genTable);
+					DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.MASTER.getKey());
+					if (!CollectionUtils.isEmpty(columnList)) {
+						break;
+					}
+				}
+
 				for (GenTableColumn column : columnList){
 					boolean b = false;
 					for (GenTableColumn e : genTable.getColumnList()){

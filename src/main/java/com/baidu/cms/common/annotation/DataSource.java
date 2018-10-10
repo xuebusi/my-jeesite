@@ -1,5 +1,7 @@
 package com.baidu.cms.common.annotation;
 
+import com.baidu.cms.common.datasource.DataSourceEnum;
+
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -17,5 +19,5 @@ import java.lang.annotation.Target;
 @Documented
 public @interface DataSource {
 
-    String value() default "";
+    DataSourceEnum value() default DataSourceEnum.MASTER;
 }

@@ -3,12 +3,12 @@
  */
 package com.baidu.cms.modules.ai.site.web;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.baidu.cms.common.annotation.DataSource;
-import com.baidu.cms.common.datasource.DataSourceKey;
-import com.baidu.cms.common.datasource.DynamicDatasourceHolder;
+import com.baidu.cms.common.config.Global;
+import com.baidu.cms.common.persistence.Page;
+import com.baidu.cms.common.utils.StringUtils;
+import com.baidu.cms.common.web.BaseController;
+import com.baidu.cms.modules.ai.site.entity.TestSite;
+import com.baidu.cms.modules.ai.site.service.TestSiteService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,12 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.baidu.cms.common.config.Global;
-import com.baidu.cms.common.persistence.Page;
-import com.baidu.cms.common.web.BaseController;
-import com.baidu.cms.common.utils.StringUtils;
-import com.baidu.cms.modules.ai.site.entity.TestSite;
-import com.baidu.cms.modules.ai.site.service.TestSiteService;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 测试站点Controller
@@ -52,9 +48,7 @@ public class TestSiteController extends BaseController {
 	@RequiresPermissions("site:testSite:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(TestSite testSite, HttpServletRequest request, HttpServletResponse response, Model model) {
-//		DynamicDatasourceHolder.setDataSourceKey(DataSourceKey.SLAVE);
 		Page<TestSite> page = testSiteService.findPage(new Page<TestSite>(request, response), testSite);
-//		DynamicDatasourceHolder.setDataSourceKey(DataSourceKey.MASTER);
 		model.addAttribute("page", page);
 		return "modules/ai/site/testSiteList";
 	}

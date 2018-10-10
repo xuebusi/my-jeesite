@@ -3,11 +3,14 @@
  */
 package com.baidu.cms.modules.gen.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.baidu.cms.common.datasource.DataSourceEnum;
+import com.baidu.cms.common.datasource.DynamicDatasourceHolder;
 import com.baidu.cms.modules.gen.service.GenTableService;
 import com.baidu.cms.modules.sys.entity.User;
 import com.baidu.cms.modules.sys.utils.UserUtils;
@@ -62,9 +65,19 @@ public class GenTableController extends BaseController {
 	@RequiresPermissions("gen:genTable:view")
 	@RequestMapping(value = "form")
 	public String form(GenTable genTable, Model model) {
+
 		// 获取物理表列表
-		List<GenTable> tableList = genTableService.findTableListFormDb(new GenTable());
+		List<GenTable> tableList = new ArrayList<GenTable>();
+
+		// TODO 从所有库加载物理表，待优化
+		DataSourceEnum[] enums = DataSourceEnum.values();
+		for (DataSourceEnum e : enums) {
+			DynamicDatasourceHolder.setDataSourceKey(e.getKey());
+			tableList.addAll(genTableService.findTableListFormDb(new GenTable()));
+			DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.MASTER.getKey());
+		}
 		model.addAttribute("tableList", tableList);
+
 		// 验证表是否存在
 		if (StringUtils.isBlank(genTable.getId()) && !genTableService.checkTableName(genTable.getName())){
 			addMessage(model, "下一步失败！" + genTable.getName() + " 表已经添加！");

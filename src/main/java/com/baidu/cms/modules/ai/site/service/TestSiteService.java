@@ -4,7 +4,7 @@
 package com.baidu.cms.modules.ai.site.service;
 
 import com.baidu.cms.common.annotation.DataSource;
-import com.baidu.cms.common.datasource.DataSourceKey;
+import com.baidu.cms.common.datasource.DataSourceEnum;
 import com.baidu.cms.common.persistence.Page;
 import com.baidu.cms.common.service.CrudService;
 import com.baidu.cms.modules.ai.site.dao.TestSiteDao;
@@ -20,7 +20,7 @@ import java.util.List;
  * @version 2018-10-10
  */
 @Service
-@DataSource(DataSourceKey.SLAVE)
+@DataSource(DataSourceEnum.SLAVE1)
 @Transactional(readOnly = true)
 public class TestSiteService extends CrudService<TestSiteDao, TestSite> {
 

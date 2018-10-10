@@ -1,7 +1,6 @@
 package com.baidu.cms.common.aop;
 
 import com.baidu.cms.common.annotation.DataSource;
-import com.baidu.cms.common.datasource.DataSourceKey;
 import com.baidu.cms.common.datasource.DynamicDatasourceHolder;
 import com.baidu.cms.common.utils.Reflections;
 import org.aspectj.lang.JoinPoint;
@@ -36,10 +35,10 @@ public class DataSourceAspect {
     /*@Around("pointcut()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
         System.out.println("---------------------调用前---------------------");
-        DynamicDatasourceHolder.setDataSourceKey(DataSourceKey.SLAVE);
+        DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.SLAVE);
         Object result = pjp.proceed();
         System.out.println("---------------------调用后---------------------");
-        DynamicDatasourceHolder.setDataSourceKey(DataSourceKey.MASTER);
+        DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.MASTER);
         return result;
     }*/
 
@@ -49,7 +48,7 @@ public class DataSourceAspect {
     @Before("pointcut()")
     public void changeDataSourceBeforeMethodExecution(JoinPoint point) {
 
-        DynamicDatasourceHolder.setDataSourceKey(DataSourceKey.SLAVE);
+        preDatasourceHolder.set(DynamicDatasourceHolder.getDataSourceKey());
 
         // 拿到anotation中配置的数据源
         String key = determineDatasource(point);
@@ -58,7 +57,6 @@ public class DataSourceAspect {
             DynamicDatasourceHolder.setDataSourceKey(null);
             return;
         }
-        preDatasourceHolder.set(DynamicDatasourceHolder.getDataSourceKey());
         // 将数据源设置到数据源持有者
         DynamicDatasourceHolder.setDataSourceKey(key);
 
@@ -91,8 +89,6 @@ public class DataSourceAspect {
     public void restoreDataSourceAfterMethodExecution() {
         DynamicDatasourceHolder.setDataSourceKey(preDatasourceHolder.get());
         preDatasourceHolder.remove();
-
-        DynamicDatasourceHolder.setDataSourceKey(DataSourceKey.MASTER);
     }
 
 
@@ -144,7 +140,7 @@ public class DataSourceAspect {
      * @return
      */
     private String resolveDataSourcename(DataSource ds) {
-        return ds == null ? null : ds.value();
+        return ds == null ? null : ds.value().getKey();
     }
 
 

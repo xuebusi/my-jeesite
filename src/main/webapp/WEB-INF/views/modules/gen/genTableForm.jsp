@@ -47,6 +47,7 @@
 						<form:select path="name" class="input-xxlarge">
 							<form:options items="${tableList}" itemLabel="nameAndComments" itemValue="name" htmlEscape="false"/>
 						</form:select>
+						<span class="help-inline">(库名 . 表名 : 描述)</span>
 					</div>
 					<div class="form-actions">
 						<input id="btnSubmit" class="btn btn-primary" type="submit" value="下一步"/>&nbsp;

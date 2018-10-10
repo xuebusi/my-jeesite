@@ -19,6 +19,7 @@ import com.baidu.cms.common.utils.StringUtils;
 public class GenTable extends DataEntity<GenTable> {
 	
 	private static final long serialVersionUID = 1L;
+	private String tableSchema;// 库名
 	private String name; 	// 名称
 	private String comments;		// 描述
 	private String className;		// 实体类名称
@@ -40,6 +41,14 @@ public class GenTable extends DataEntity<GenTable> {
 
 	public GenTable(String id){
 		super(id);
+	}
+
+	public String getTableSchema() {
+		return tableSchema;
+	}
+
+	public void setTableSchema(String tableSchema) {
+		this.tableSchema = tableSchema;
 	}
 
 	@Length(min=1, max=200)
@@ -125,10 +134,11 @@ public class GenTable extends DataEntity<GenTable> {
 	
 	/**
 	 * 获取列名和说明
+	 * 格式为(库名 . 表名 : 描述)
 	 * @return
 	 */
 	public String getNameAndComments() {
-		return getName() + (comments == null ? "" : "  :  " + comments);
+		return (tableSchema == null ? "" : tableSchema + " . ") + getName() + (comments == null ? "" : "  :  " + comments);
 	}
 
 	/**

@@ -24,7 +24,7 @@
 			ORDER BY t.name
 		</if>
 		<if test="dbName == 'mysql'">			
-			SELECT t.table_name AS name,t.TABLE_COMMENT AS comments 
+			SELECT t.table_name AS name,t.TABLE_COMMENT AS comments, t.TABLE_SCHEMA tableSchema
 			FROM information_schema.`TABLES` t 
 			WHERE t.TABLE_SCHEMA = (select database())
 			<if test="name != null and name != ''">
