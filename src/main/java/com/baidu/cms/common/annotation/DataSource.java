@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *  注解式数据源:用来进行数据源切换
+ *  注解式数据源，用来进行数据源切换
  *
  *  @author: shiyanjun
  *  @Date: 2018/10/10 上午11:54
