@@ -5,7 +5,7 @@ package com.baidu.cms.common.datasource;
  *  @author: shiyanjun
  *  @Date: 2018/10/9 下午4:33
  */
-public enum DbType {
+public enum DataSourceKey {
 
     /**
      * 主库
