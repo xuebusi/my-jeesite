@@ -11,7 +11,7 @@
  Target Server Version : 50641
  File Encoding         : 65001
 
- Date: 11/10/2018 14:01:04
+ Date: 11/10/2018 14:38:36
 */
 
 SET NAMES utf8mb4;
@@ -1025,6 +1025,7 @@ INSERT INTO `gen_table` VALUES ('aef6f1fc948f4c9ab1c1b780bc471cc2', 'test_data',
 INSERT INTO `gen_table` VALUES ('b7fbf3232f794618aca40ad1904df5c1', 'test_site', '测试站点', 'TestSite', '', '', '1', '2018-10-10 11:05:14', '1', '2018-10-10 21:26:02', '', '0');
 INSERT INTO `gen_table` VALUES ('b9c148e175d74831b4bcdf5a997b7bc3', 'pf_tag', '标签表', 'PfTag', '', '', '1', '2018-10-10 18:09:34', '1', '2018-10-10 18:09:34', '', '1');
 INSERT INTO `gen_table` VALUES ('ccc80dd998c74231a699a7bd79045917', 'p_seo', '官网SEO', 'PSeo', '', '', '1', '2018-10-05 09:46:07', '1', '2018-10-05 10:27:42', '', '1');
+INSERT INTO `gen_table` VALUES ('d397e5a4db604e37abe0827de34dd7b5', 'act_evt_log', 'act_evt_log', 'ActEvtLog', '', '', '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', '', '1');
 INSERT INTO `gen_table` VALUES ('f304fd15722948c786b17a1c3fb304d7', 'test_seo', '官网SEO', 'TestSeo', '', '', '1', '2018-10-05 21:22:16', '1', '2018-10-06 21:55:24', '', '1');
 INSERT INTO `gen_table` VALUES ('f6e4dafaa72f4c509636484715f33a96', 'test_tree', '树结构表', 'TestTree', NULL, NULL, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 COMMIT;
@@ -1069,6 +1070,7 @@ CREATE TABLE `gen_table_column` (
 -- Records of gen_table_column
 -- ----------------------------
 BEGIN;
+INSERT INTO `gen_table_column` VALUES ('01f3a36549554d85ad0ca631b10a04c8', 'd397e5a4db604e37abe0827de34dd7b5', 'proc_inst_id_', 'proc_inst_id_', 'varchar(64)', 'String', 'procInstId', '0', '1', '1', '1', '0', '0', '=', 'input', '', NULL, 40, '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('05775138940745bca2d43f4d1caaa03c', '040d6843ee83464fafdb9c28cad51f5a', 'weapp_key', 'weapp_key', 'varchar(50)', 'String', 'weappKey', '0', '1', '1', '1', '0', '0', '=', 'input', '', NULL, 100, '1', '2018-10-10 21:25:28', '1', '2018-10-10 21:25:28', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('0902a0cb3e8f434280c20e9d771d0658', 'aef6f1fc948f4c9ab1c1b780bc471cc2', 'sex', '性别', 'char(1)', 'String', 'sex', '0', '1', '1', '1', '1', '1', '=', 'radiobox', 'sex', NULL, 6, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('09e991bd33744710b0051b181afe6f6f', '69dbf991d4c4439984f734937b655e3b', 'remarks', '备注信息', 'varchar(255)', 'String', 'remarks', '0', '1', '1', '1', '1', '1', '=', 'textarea', '', NULL, 120, '1', '2018-10-07 09:31:30', '1', '2018-10-07 18:12:56', NULL, '0');
@@ -1077,6 +1079,7 @@ INSERT INTO `gen_table_column` VALUES ('12d379d139014698b4ad17dd962a0a9f', 'ccc8
 INSERT INTO `gen_table_column` VALUES ('12fa38dd986e41908f7fefa5839d1220', '6e05c389f3c6415ea34e55e9dfb28934', 'create_by', '创建者', 'varchar2(64)', 'com.thinkgem.jeesite.modules.modules.sys.entity.User', 'createBy.id', '0', '0', '1', '0', '0', '0', '=', 'input', NULL, NULL, 4, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('135b79c7a4a5472cbe1542e5a6f1ed55', '7ef1dce6041a44ca8c4e6650d3bdee95', 'id', '主键', 'bigint(10)', 'Long', 'id', '1', '0', '0', '0', '1', '0', '=', 'input', '', NULL, 10, '1', '2018-10-09 13:44:20', '1', '2018-10-09 14:14:27', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('153338f92e254d23951c4d37a909a763', 'ccc80dd998c74231a699a7bd79045917', 'seo_title', 'seo标题', 'varchar(64)', 'String', 'seoTitle', '0', '1', '1', '1', '1', '1', 'like', 'input', '', NULL, 30, '1', '2018-10-05 09:46:07', '1', '2018-10-05 10:27:42', NULL, '1');
+INSERT INTO `gen_table_column` VALUES ('158716361c28465387c7a293df130268', 'd397e5a4db604e37abe0827de34dd7b5', 'lock_time_', 'lock_time_', 'timestamp(3)', 'java.util.Date', 'lockTime', '0', '1', '1', '1', '0', '0', '=', 'dateselect', '', NULL, 110, '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('16603cac629f4dbea858ed58a4432992', '020f35a60d3940f686053e0b12f2f0ad', 'notice_email', '通知邮箱', 'varchar(200)', 'String', 'noticeEmail', '0', '0', '1', '1', '0', '0', '=', 'input', '', NULL, 200, '1', '2018-10-10 18:04:48', '1', '2018-10-10 18:04:48', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('195ee9241f954d008fe01625f4adbfef', 'f6e4dafaa72f4c509636484715f33a96', 'create_by', '创建者', 'varchar2(64)', 'com.thinkgem.jeesite.modules.modules.sys.entity.User', 'createBy.id', '0', '0', '1', '0', '0', '0', '=', 'input', NULL, NULL, 6, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('19c6478b8ff54c60910c2e4fc3d27503', '43d6d5acffa14c258340ce6765e46c6f', 'id', '编号', 'varchar2(64)', 'String', 'id', '1', '0', '1', '0', '0', '0', '=', 'input', NULL, NULL, 1, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
@@ -1088,6 +1091,7 @@ INSERT INTO `gen_table_column` VALUES ('1cd5e87772554e1b9764d6f124d6a7a0', '69db
 INSERT INTO `gen_table_column` VALUES ('1d5ca4d114be41e99f8dc42a682ba609', 'aef6f1fc948f4c9ab1c1b780bc471cc2', 'user_id', '归属用户', 'varchar2(64)', 'com.thinkgem.jeesite.modules.modules.sys.entity.User', 'user.id|name', '0', '1', '1', '1', '1', '1', '=', 'userselect', NULL, NULL, 2, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('21756504ffdc487eb167a823f89c0c06', '43d6d5acffa14c258340ce6765e46c6f', 'update_by', '更新者', 'varchar2(64)', 'com.thinkgem.jeesite.modules.modules.sys.entity.User', 'updateBy.id', '0', '0', '1', '1', '0', '0', '=', 'input', NULL, NULL, 10, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('24bbdc0a555e4412a106ab1c5f03008e', 'f6e4dafaa72f4c509636484715f33a96', 'parent_ids', '所有父级编号', 'varchar2(2000)', 'String', 'parentIds', '0', '0', '1', '1', '0', '0', 'like', 'input', NULL, NULL, 3, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
+INSERT INTO `gen_table_column` VALUES ('24c014840e6b42ca914526db2db6fdc5', 'd397e5a4db604e37abe0827de34dd7b5', 'lock_owner_', 'lock_owner_', 'varchar(255)', 'String', 'lockOwner', '0', '1', '1', '1', '0', '0', '=', 'input', '', NULL, 100, '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('266ff1fb54ac4c548151f2f06dbcb685', 'f304fd15722948c786b17a1c3fb304d7', 'update_date', '更新时间', 'datetime', 'java.util.Date', 'updateDate', '0', '1', '1', '0', '1', '1', '&gt;=', 'dateselect', '', NULL, 80, '1', '2018-10-05 21:22:16', '1', '2018-10-06 21:55:25', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('307533842216442ca735790aa1fa7e05', 'f304fd15722948c786b17a1c3fb304d7', 'seo_img_json', '图片地址json数组', 'varchar(6000)', 'String', 'seoImgJson', '0', '1', '1', '1', '1', '1', 'like', 'input', '', NULL, 110, '1', '2018-10-05 21:22:16', '1', '2018-10-06 21:55:25', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('33152ce420904594b3eac796a27f0560', '6e05c389f3c6415ea34e55e9dfb28934', 'id', '编号', 'varchar2(64)', 'String', 'id', '1', '0', '1', '0', '0', '0', '=', 'input', NULL, NULL, 1, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
@@ -1096,6 +1100,7 @@ INSERT INTO `gen_table_column` VALUES ('35af241859624a01917ab64c3f4f0813', 'aef6
 INSERT INTO `gen_table_column` VALUES ('39236a84d4a7483a85b1702eaea60126', '020f35a60d3940f686053e0b12f2f0ad', 'is_private', '是否只允许版主发帖', 'smallint(3)', 'String', 'isPrivate', '0', '0', '1', '1', '0', '0', '=', 'input', '', NULL, 100, '1', '2018-10-10 18:04:48', '1', '2018-10-10 18:04:48', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('398b4a03f06940bfb979ca574e1911e3', 'aef6f1fc948f4c9ab1c1b780bc471cc2', 'create_by', '创建者', 'varchar2(64)', 'com.thinkgem.jeesite.modules.modules.sys.entity.User', 'createBy.id', '0', '0', '1', '0', '0', '0', '=', 'input', NULL, NULL, 8, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('3a01df65f5ab45a0aa7e27f0f3c1c6b4', '020f35a60d3940f686053e0b12f2f0ad', 'id', '讨论区编号', 'bigint(20)', 'Long', 'id', '0', '0', '1', '0', '0', '0', '=', 'input', '', NULL, 10, '1', '2018-10-10 18:04:48', '1', '2018-10-10 18:04:48', NULL, '1');
+INSERT INTO `gen_table_column` VALUES ('3a41b0ceb30a408eaecc55fe4e2e3999', 'd397e5a4db604e37abe0827de34dd7b5', 'time_stamp_', 'time_stamp_', 'timestamp(3)', 'java.util.Date', 'timeStamp', '0', '0', '1', '1', '0', '0', '=', 'dateselect', '', NULL, 70, '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('3a5b01d188cd4959838e23dd008055e6', '020f35a60d3940f686053e0b12f2f0ad', 'announcement', '公告', 'varchar(1000)', 'String', 'announcement', '0', '0', '1', '1', '0', '0', '=', 'input', '', NULL, 110, '1', '2018-10-10 18:04:48', '1', '2018-10-10 18:04:48', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('3a7cf23ae48a4c849ceb03feffc7a524', '43d6d5acffa14c258340ce6765e46c6f', 'area_id', '归属区域', 'nvarchar2(64)', 'com.thinkgem.jeesite.modules.modules.sys.entity.Area', 'area.id|name', '0', '1', '1', '1', '0', '0', '=', 'areaselect', NULL, NULL, 4, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('3adae0e1f63044058d4b39cbbc5156bc', '040d6843ee83464fafdb9c28cad51f5a', 'weapp_service', 'weapp_service', 'bigint(10)', 'Integer', 'weappService', '0', '0', '1', '1', '0', '0', '=', 'input', '', NULL, 30, '1', '2018-10-10 21:25:28', '1', '2018-10-10 21:25:28', NULL, '1');
@@ -1130,6 +1135,7 @@ INSERT INTO `gen_table_column` VALUES ('652491500f2641ffa7caf95a93e64d34', '6e05
 INSERT INTO `gen_table_column` VALUES ('66bfe7b9203a4c41bffebdc0b06f1f01', '7ef1dce6041a44ca8c4e6650d3bdee95', 'tag_id', 'tag id', 'bigint(10)', 'Long', 'tagId', '0', '1', '1', '1', '1', '1', '=', 'input', '', NULL, 20, '1', '2018-10-09 13:44:20', '1', '2018-10-09 14:14:27', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('6763ff6dc7cd4c668e76cf9b697d3ff6', 'f6e4dafaa72f4c509636484715f33a96', 'sort', '排序', 'number(10)', 'Integer', 'sort', '0', '0', '1', '1', '1', '0', '=', 'input', NULL, NULL, 5, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('67d0331f809a48ee825602659f0778e8', '43d6d5acffa14c258340ce6765e46c6f', 'name', '名称', 'nvarchar2(100)', 'String', 'name', '0', '1', '1', '1', '1', '1', 'like', 'input', NULL, NULL, 5, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
+INSERT INTO `gen_table_column` VALUES ('67e4a7f9f0f44af88f0fd6bf497b9238', 'd397e5a4db604e37abe0827de34dd7b5', 'execution_id_', 'execution_id_', 'varchar(64)', 'String', 'executionId', '0', '1', '1', '1', '0', '0', '=', 'input', '', NULL, 50, '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('68345713bef3445c906f70e68f55de38', '6e05c389f3c6415ea34e55e9dfb28934', 'test_data_main_id', '业务主表', 'varchar2(64)', 'String', 'testDataMain.id', '0', '1', '1', '1', '0', '0', '=', 'input', NULL, NULL, 2, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('6b6a94167c7849c4ae5e40b3c70b9fbc', '020f35a60d3940f686053e0b12f2f0ad', 'homepage_url', '外链地址', 'varchar(512)', 'String', 'homepageUrl', '0', '0', '1', '1', '0', '0', '=', 'input', '', NULL, 50, '1', '2018-10-10 18:04:48', '1', '2018-10-10 18:04:48', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('6ebfe6ffb09c46e883a52b6cd171a6f3', '69dbf991d4c4439984f734937b655e3b', 'status_code', '状态码', 'int(2)', 'String', 'statusCode', '0', '1', '1', '1', '1', '0', '=', 'radiobox', 'status_code', NULL, 100, '1', '2018-10-07 09:31:30', '1', '2018-10-07 18:12:56', NULL, '0');
@@ -1161,6 +1167,7 @@ INSERT INTO `gen_table_column` VALUES ('95fe94819c3244e2a453fad8fd138086', 'ccc8
 INSERT INTO `gen_table_column` VALUES ('9939045c6bb94be9a13e109937b8287f', 'f304fd15722948c786b17a1c3fb304d7', 'seo_keyword', 'seokeyword', 'varchar(64)', 'String', 'seoKeyword', '0', '1', '1', '1', '1', '1', 'like', 'input', '', NULL, 40, '1', '2018-10-05 21:22:16', '1', '2018-10-06 21:55:25', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('99ba4e22dc76469dbacb033fc6e949ae', 'f304fd15722948c786b17a1c3fb304d7', 'del_flag', '删除标记', 'char(1)', 'String', 'delFlag', '0', '0', '1', '0', '1', '1', '=', 'radiobox', 'del_flag', NULL, 130, '1', '2018-10-05 21:22:16', '1', '2018-10-06 21:55:25', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('9a012c1d2f934dbf996679adb7cc827a', 'f6e4dafaa72f4c509636484715f33a96', 'parent_id', '父级编号', 'varchar2(64)', 'This', 'parent.id|name', '0', '0', '1', '1', '0', '0', '=', 'treeselect', NULL, NULL, 2, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
+INSERT INTO `gen_table_column` VALUES ('9b516de94e604c499fd0601f196447b2', 'd397e5a4db604e37abe0827de34dd7b5', 'type_', 'type_', 'varchar(64)', 'String', 'type', '0', '1', '1', '1', '0', '0', '=', 'input', '', NULL, 20, '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('a0ed2c578bff47a2b12e83acc817a6f4', '69dbf991d4c4439984f734937b655e3b', 'id', 'id', 'bigint(20)', 'Long', 'id', '1', '0', '0', '0', '1', '0', '=', 'input', '', NULL, 10, '1', '2018-10-07 09:31:30', '1', '2018-10-07 18:12:56', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('a20c4f63e69f40a78804c28f32eb5edb', 'b9c148e175d74831b4bcdf5a997b7bc3', 'id', '主键', 'bigint(10)', 'Long', 'id', '1', '0', '1', '0', '1', '1', '=', 'input', '', NULL, 10, '1', '2018-10-10 18:09:34', '1', '2018-10-10 18:09:34', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('a69dbaf9c62141e9bcbfcbf65b14cbc6', 'ccc80dd998c74231a699a7bd79045917', 'seo_keyword', 'seokeyword', 'varchar(64)', 'String', 'seoKeyword', '0', '1', '1', '1', '1', '1', 'like', 'input', '', NULL, 40, '1', '2018-10-05 09:46:07', '1', '2018-10-05 10:27:42', NULL, '1');
@@ -1182,19 +1189,25 @@ INSERT INTO `gen_table_column` VALUES ('c5ad102df19044ec9f3773821383d17a', 'ccc8
 INSERT INTO `gen_table_column` VALUES ('ca68a2d403f0449cbaa1d54198c6f350', '43d6d5acffa14c258340ce6765e46c6f', 'office_id', '归属部门', 'varchar2(64)', 'com.thinkgem.jeesite.modules.modules.sys.entity.Office', 'office.id|name', '0', '1', '1', '1', '0', '0', '=', 'officeselect', NULL, NULL, 3, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('cb9c0ec3da26432d9cbac05ede0fd1d0', '43d6d5acffa14c258340ce6765e46c6f', 'remarks', '备注信息', 'nvarchar2(255)', 'String', 'remarks', '0', '1', '1', '1', '1', '0', '=', 'textarea', NULL, NULL, 12, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('cfcfa06ea61749c9b4c4dbc507e0e580', 'f6e4dafaa72f4c509636484715f33a96', 'id', '编号', 'varchar2(64)', 'String', 'id', '1', '0', '1', '0', '0', '0', '=', 'input', NULL, NULL, 1, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
+INSERT INTO `gen_table_column` VALUES ('d4733f5174a24b82a102d7ca906cf5b8', 'd397e5a4db604e37abe0827de34dd7b5', 'data_', 'data_', 'longblob', 'String', 'data', '0', '1', '1', '1', '0', '0', '=', 'input', '', NULL, 90, '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('d5c2d932ae904aa8a9f9ef34cd36fb0b', '43d6d5acffa14c258340ce6765e46c6f', 'sex', '性别', 'char(1)', 'String', 'sex', '0', '1', '1', '1', '0', '1', '=', 'select', 'sex', NULL, 6, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('d76e13225e694aba8b4039198e7b3ffd', '69dbf991d4c4439984f734937b655e3b', 'update_by', '更新人', 'varchar(64)', 'String', 'updateBy.id', '0', '1', '1', '0', '1', '1', '=', 'input', '', NULL, 90, '1', '2018-10-07 09:31:30', '1', '2018-10-07 18:12:56', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('d7a8603d54c64d70a1b89c2ef9140d3c', '020f35a60d3940f686053e0b12f2f0ad', 'icon_path', '头图地址', 'varchar(255)', 'String', 'iconPath', '0', '0', '1', '1', '0', '0', '=', 'input', '', NULL, 130, '1', '2018-10-10 18:04:48', '1', '2018-10-10 18:04:48', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('dd80026ad5074f168825afa8a9cf99e7', '69dbf991d4c4439984f734937b655e3b', 'seo_img_json', '图片地址', 'varchar(6000)', 'String', 'seoImgJson', '0', '1', '1', '1', '1', '1', '=', 'input', '', NULL, 110, '1', '2018-10-07 09:31:30', '1', '2018-10-07 18:12:56', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('e47e1cd67cc54c599b62934a4304d5a2', 'b9c148e175d74831b4bcdf5a997b7bc3', 'tag_name', 'tag名称', 'varchar(100)', 'String', 'tagName', '0', '0', '1', '1', '1', '1', '=', 'input', '', NULL, 20, '1', '2018-10-10 18:09:34', '1', '2018-10-10 18:09:34', NULL, '1');
+INSERT INTO `gen_table_column` VALUES ('e62526639df446ae961a972032f0e7c0', 'd397e5a4db604e37abe0827de34dd7b5', 'user_id_', 'user_id_', 'varchar(255)', 'com.baidu.cms.modules.sys.entity.User', 'user.id|name', '0', '1', '1', '1', '0', '0', '=', 'userselect', '', NULL, 80, '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('e64050a2ebf041faa16f12dda5dcf784', '6e05c389f3c6415ea34e55e9dfb28934', 'name', '名称', 'nvarchar2(100)', 'String', 'name', '0', '1', '1', '1', '1', '1', 'like', 'input', NULL, NULL, 3, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('e8af2b2acf704ae5ab62833524e1e83f', '020f35a60d3940f686053e0b12f2f0ad', 'sort_order', '排序顺序', 'int(11)', 'String', 'sortOrder', '0', '0', '1', '1', '0', '0', '=', 'input', '', NULL, 80, '1', '2018-10-10 18:04:48', '1', '2018-10-10 18:04:48', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('e8d11127952d4aa288bb3901fc83127f', '43d6d5acffa14c258340ce6765e46c6f', 'del_flag', '删除标记（0：正常；1：删除）', 'char(1)', 'String', 'delFlag', '0', '0', '1', '0', '0', '0', '=', 'radiobox', 'del_flag', NULL, 13, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('eb2e5afd13f147a990d30e68e7f64e12', 'aef6f1fc948f4c9ab1c1b780bc471cc2', 'update_date', '更新时间', 'timestamp(6)', 'java.util.Date', 'updateDate', '0', '0', '1', '1', '1', '0', '=', 'dateselect', NULL, NULL, 11, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
+INSERT INTO `gen_table_column` VALUES ('ee282de4edd44f0da24cb7947eb14fb9', 'd397e5a4db604e37abe0827de34dd7b5', 'proc_def_id_', 'proc_def_id_', 'varchar(64)', 'String', 'procDefId', '0', '1', '1', '1', '0', '0', '=', 'input', '', NULL, 30, '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', NULL, '1');
+INSERT INTO `gen_table_column` VALUES ('ef6c20a9f3674c1dbadc3df674c37560', 'd397e5a4db604e37abe0827de34dd7b5', 'task_id_', 'task_id_', 'varchar(64)', 'String', 'taskId', '0', '1', '1', '1', '0', '0', '=', 'input', '', NULL, 60, '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('f1fed3ef020f4b54875b5a27af4ba2d0', '020f35a60d3940f686053e0b12f2f0ad', 'seo_description', 'description', 'varchar(500)', 'String', 'seoDescription', '0', '0', '1', '1', '0', '0', '=', 'input', '', NULL, 190, '1', '2018-10-10 18:04:48', '1', '2018-10-10 18:04:48', NULL, '1');
+INSERT INTO `gen_table_column` VALUES ('f242fc399aca46c6a641ffb65734c0ad', 'd397e5a4db604e37abe0827de34dd7b5', 'is_processed_', 'is_processed_', 'tinyint(4)', 'String', 'isProcessed', '0', '1', '1', '1', '0', '0', '=', 'input', '', NULL, 120, '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('f5ed8c82bad0413fbfcccefa95931358', 'f6e4dafaa72f4c509636484715f33a96', 'remarks', '备注信息', 'nvarchar2(255)', 'String', 'remarks', '0', '1', '1', '1', '1', '0', '=', 'textarea', NULL, NULL, 10, '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', NULL, '0');
 INSERT INTO `gen_table_column` VALUES ('f701cf04312d45cb912a149cfa1510cd', '040d6843ee83464fafdb9c28cad51f5a', 'weapp_abs', 'weapp_abs', 'varchar(255)', 'String', 'weappAbs', '0', '0', '1', '1', '0', '0', '=', 'input', '', NULL, 40, '1', '2018-10-10 21:25:28', '1', '2018-10-10 21:25:28', NULL, '1');
 INSERT INTO `gen_table_column` VALUES ('f825d8067e62411c920c3ec097396d58', 'ccc80dd998c74231a699a7bd79045917', 'id', 'id', 'varchar(64)', 'String', 'id', '1', '0', '0', '0', '1', '0', '=', 'input', '', NULL, 10, '1', '2018-10-05 09:46:07', '1', '2018-10-05 10:27:42', NULL, '1');
+INSERT INTO `gen_table_column` VALUES ('fbe408a4b6954035bb44f7a33b9ddaac', 'd397e5a4db604e37abe0827de34dd7b5', 'log_nr_', 'log_nr_', 'bigint(20)', 'Long', 'logNr', '1', '0', '1', '1', '0', '0', '=', 'input', '', NULL, 10, '1', '2018-10-11 14:09:01', '1', '2018-10-11 14:09:01', NULL, '1');
 COMMIT;
 
 -- ----------------------------
@@ -1359,11 +1372,11 @@ CREATE TABLE `sys_area` (
 -- ----------------------------
 BEGIN;
 INSERT INTO `sys_area` VALUES ('1', '0', '0,', '中国', 10, '100000', '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_area` VALUES ('2', '1', '0,1,', '山东省', 20, '110000', '2', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_area` VALUES ('3', '2', '0,1,2,', '济南市', 30, '110101', '3', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_area` VALUES ('4', '3', '0,1,2,3,', '历城区', 40, '110102', '4', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_area` VALUES ('5', '3', '0,1,2,3,', '历下区', 50, '110104', '4', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_area` VALUES ('6', '3', '0,1,2,3,', '高新区', 60, '110105', '4', '1', '2013-05-27 08:00:00', '1', '2018-10-07 17:46:22', 'bbb', '0');
+INSERT INTO `sys_area` VALUES ('2', '1', '0,1,', '北京', 20, '110000', '2', '1', '2013-05-27 08:00:00', '1', '2018-10-11 14:23:48', '', '0');
+INSERT INTO `sys_area` VALUES ('3', '2', '0,1,2,', '北京市', 30, '110101', '3', '1', '2013-05-27 08:00:00', '1', '2018-10-11 14:18:38', '', '0');
+INSERT INTO `sys_area` VALUES ('4', '3', '0,1,2,3,', '海淀区', 40, '110102', '4', '1', '2013-05-27 08:00:00', '1', '2018-10-11 14:18:48', '', '0');
+INSERT INTO `sys_area` VALUES ('5', '3', '0,1,2,3,', '历下区', 50, '110104', '4', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_area` VALUES ('6', '3', '0,1,2,3,', '高新区', 60, '110105', '4', '1', '2013-05-27 08:00:00', '1', '2018-10-07 17:46:22', 'bbb', '1');
 COMMIT;
 
 -- ----------------------------
@@ -1534,14 +1547,6 @@ CREATE TABLE `sys_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='日志表';
 
 -- ----------------------------
--- Records of sys_log
--- ----------------------------
-BEGIN;
-INSERT INTO `sys_log` VALUES ('546fd128cd6b4b679ff61862a2b2e3e6', '1', '官网CMS-测试站点-测试站点', '1', '2018-10-11 13:59:46', '0:0:0:0:0:0:0:1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36', '/a/site/testSite', 'GET', '', '');
-INSERT INTO `sys_log` VALUES ('75468c99dc6c430e9c880e57e78fda81', '1', '系统设置-日志查询-日志查询', '1', '2018-10-11 13:59:42', '0:0:0:0:0:0:0:1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36', '/a/sys/log', 'GET', '', '');
-COMMIT;
-
--- ----------------------------
 -- Table structure for sys_mdict
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_mdict`;
@@ -1600,7 +1605,7 @@ INSERT INTO `sys_menu` VALUES ('1', '0', '0,', '功能菜单', 0, NULL, NULL, NU
 INSERT INTO `sys_menu` VALUES ('10', '3', '0,1,2,3,', '字典管理', 60, '/sys/dict/', NULL, 'th-list', '1', NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_menu` VALUES ('10dde3a3688c44bb8cd7e89ab9cc1cda', '7b563e5e347d4c7aaa2116e45a2179d1', '0,1,15a826e8449445dea77e48b7c2a57ed3,e0e38c3e5d77480bbb8b26a2e0519b8e,7b563e5e347d4c7aaa2116e45a2179d1,', '查看', 30, '', '', '', '0', 'seo:testSeo:view', '1', '2018-10-07 09:39:09', '1', '2018-10-07 09:39:09', '', '0');
 INSERT INTO `sys_menu` VALUES ('11', '10', '0,1,2,3,10,', '查看', 30, NULL, NULL, NULL, '0', 'sys:dict:view', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_menu` VALUES ('11a5d5d266634fdbb150853ad03b6864', 'c01391671cef47d5a3374d9288ad4602', '0,1,15a826e8449445dea77e48b7c2a57ed3,5ad2594a34be41fbaeee1c5cdd6d6e2b,c01391671cef47d5a3374d9288ad4602,', '查看', 30, '', '', '', '0', 'forumtag:pfTopicTag:view', '1', '2018-10-09 14:20:20', '1', '2018-10-09 14:20:20', '', '0');
+INSERT INTO `sys_menu` VALUES ('11a5d5d266634fdbb150853ad03b6864', 'c01391671cef47d5a3374d9288ad4602', '0,1,15a826e8449445dea77e48b7c2a57ed3,5ad2594a34be41fbaeee1c5cdd6d6e2b,c01391671cef47d5a3374d9288ad4602,', '查看', 30, '', '', '', '0', 'forumtag:pfTopicTag:view', '1', '2018-10-09 14:20:20', '1', '2018-10-09 14:20:20', '', '1');
 INSERT INTO `sys_menu` VALUES ('12', '10', '0,1,2,3,10,', '修改', 40, NULL, NULL, NULL, '0', 'sys:dict:edit', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_menu` VALUES ('13', '2', '0,1,2,', '机构用户', 970, NULL, NULL, NULL, '1', NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_menu` VALUES ('14', '13', '0,1,2,13,', '区域管理', 50, '/sys/area/', NULL, 'th', '1', NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
@@ -1617,7 +1622,7 @@ INSERT INTO `sys_menu` VALUES ('20', '13', '0,1,2,13,', '用户管理', 30, '/sy
 INSERT INTO `sys_menu` VALUES ('21', '20', '0,1,2,13,20,', '查看', 30, '', '', '', '0', 'sys:user:view', '1', '2013-05-27 08:00:00', '1', '2018-10-07 19:35:28', '', '0');
 INSERT INTO `sys_menu` VALUES ('22', '20', '0,1,2,13,20,', '修改', 40, NULL, NULL, NULL, '0', 'sys:user:edit', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_menu` VALUES ('23', '2', '0,1,2,', '关于帮助', 990, '', '', '', '1', '', '1', '2013-05-27 08:00:00', '1', '2018-10-07 21:14:45', '', '0');
-INSERT INTO `sys_menu` VALUES ('24', '23', '0,1,2,23,', '官方首页', 30, 'http://baidu.com', '_blank', '', '1', '', '1', '2013-05-27 08:00:00', '1', '2018-10-07 21:15:38', '', '0');
+INSERT INTO `sys_menu` VALUES ('24', '23', '0,1,2,23,', '官方首页', 30, 'http://ai.baidu.com/', '_blank', 'circle-blank', '1', '', '1', '2013-05-27 08:00:00', '1', '2018-10-11 14:29:51', '', '0');
 INSERT INTO `sys_menu` VALUES ('25', '23', '0,1,2,23', '项目支持', 50, 'http://jeesite.com/donation.html', '_blank', NULL, '0', NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
 INSERT INTO `sys_menu` VALUES ('26', '23', '0,1,2,23', '论坛交流', 80, 'http://bbs.jeesite.com', '_blank', NULL, '0', NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
 INSERT INTO `sys_menu` VALUES ('27', '2', '0,1,2,', '我的面板', 100, '', '', '', '1', '', '1', '2013-05-27 08:00:00', '1', '2018-10-07 11:10:26', '', '0');
@@ -1662,7 +1667,7 @@ INSERT INTO `sys_menu` VALUES ('56', '71', '0,1,2,27,71,', '文件管理', 90, '
 INSERT INTO `sys_menu` VALUES ('57', '56', '0,1,2,27,40,56,', '查看', 30, NULL, NULL, NULL, '0', 'cms:ckfinder:view', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_menu` VALUES ('58', '56', '0,1,2,27,40,56,', '上传', 40, NULL, NULL, NULL, '0', 'cms:ckfinder:upload', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_menu` VALUES ('59', '56', '0,1,2,27,40,56,', '修改', 50, NULL, NULL, NULL, '0', 'cms:ckfinder:edit', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_menu` VALUES ('5ad2594a34be41fbaeee1c5cdd6d6e2b', '15a826e8449445dea77e48b7c2a57ed3', '0,1,15a826e8449445dea77e48b7c2a57ed3,', '官网论坛标签', 90, '', '', '', '1', '', '1', '2018-10-09 14:19:06', '1', '2018-10-09 14:19:06', '', '0');
+INSERT INTO `sys_menu` VALUES ('5ad2594a34be41fbaeee1c5cdd6d6e2b', '15a826e8449445dea77e48b7c2a57ed3', '0,1,15a826e8449445dea77e48b7c2a57ed3,', '官网论坛标签', 90, '', '', '', '1', '', '1', '2018-10-09 14:19:06', '1', '2018-10-09 14:19:06', '', '1');
 INSERT INTO `sys_menu` VALUES ('6', '4', '0,1,2,3,4,', '修改', 40, NULL, NULL, NULL, '0', 'sys:menu:edit', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_menu` VALUES ('60', '31', '0,1,2,31,', '统计分析', 600, NULL, NULL, NULL, '1', NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
 INSERT INTO `sys_menu` VALUES ('61', '60', '0,1,2,31,60,', '信息量统计', 30, '/cms/stats/article', NULL, 'tasks', '1', 'cms:stats:article', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
@@ -1705,11 +1710,11 @@ INSERT INTO `sys_menu` VALUES ('afab2db430e2457f9cf3a11feaa8b869', '0ca004d6b1bf
 INSERT INTO `sys_menu` VALUES ('b1f6d1b86ba24365bae7fd86c5082317', '3c92c17886944d0687e73e286cada573', '0,1,2,79,3c92c17886944d0687e73e286cada573,', '主子表', 60, '/test/testDataMain', '', '', '1', '', '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', '', '0');
 INSERT INTO `sys_menu` VALUES ('ba8092291b40482db8fe7fc006ea3d76', '3c92c17886944d0687e73e286cada573', '0,1,2,79,3c92c17886944d0687e73e286cada573,', '单表', 30, '/test/testData', '', '', '1', '', '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', '', '0');
 INSERT INTO `sys_menu` VALUES ('be5db77747c441d19d581f83602b9673', 'ae567dc4092c44adada1faf7e5b80f6a', '0,1,af31cca8de8147d3a362ba3bcaccfda5,e5a7a28e5d6b4602a38bafde0234a3f1,ae567dc4092c44adada1faf7e5b80f6a,', '查看', 30, '', '', '', '0', 'seo:testSeo:view', '1', '2018-10-05 21:28:02', '1', '2018-10-05 21:28:02', '', '1');
-INSERT INTO `sys_menu` VALUES ('c01391671cef47d5a3374d9288ad4602', '5ad2594a34be41fbaeee1c5cdd6d6e2b', '0,1,15a826e8449445dea77e48b7c2a57ed3,5ad2594a34be41fbaeee1c5cdd6d6e2b,', '官网论坛标签', 30, '/forumtag/pfTopicTag', '', '', '1', '', '1', '2018-10-09 14:19:33', '1', '2018-10-09 14:19:49', '', '0');
+INSERT INTO `sys_menu` VALUES ('c01391671cef47d5a3374d9288ad4602', '5ad2594a34be41fbaeee1c5cdd6d6e2b', '0,1,15a826e8449445dea77e48b7c2a57ed3,5ad2594a34be41fbaeee1c5cdd6d6e2b,', '官网论坛标签', 30, '/forumtag/pfTopicTag', '', '', '1', '', '1', '2018-10-09 14:19:33', '1', '2018-10-09 14:19:49', '', '1');
 INSERT INTO `sys_menu` VALUES ('c2e4d9082a0b4386884a0b203afe2c5c', '0ca004d6b1bf4bcab9670a5060d82a55', '0,1,2,79,3c92c17886944d0687e73e286cada573,0ca004d6b1bf4bcab9670a5060d82a55,', '查看', 30, '', '', '', '0', 'test:testTree:view', '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', '', '0');
 INSERT INTO `sys_menu` VALUES ('cc1c0a8adb614e22a97f45a33c24d9e9', '0d93997d88684ed082ca6ba25a864acf', '0,1,15a826e8449445dea77e48b7c2a57ed3,0d93997d88684ed082ca6ba25a864acf,', '测试站点', 230, '/site/testSite', '', '', '1', '', '1', '2018-10-10 11:12:53', '1', '2018-10-10 11:18:01', '', '0');
 INSERT INTO `sys_menu` VALUES ('d15ec45a4c5449c3bbd7a61d5f9dd1d2', 'b1f6d1b86ba24365bae7fd86c5082317', '0,1,2,79,3c92c17886944d0687e73e286cada573,b1f6d1b86ba24365bae7fd86c5082317,', '编辑', 60, '', '', '', '0', 'test:testDataMain:edit', '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', '', '0');
-INSERT INTO `sys_menu` VALUES ('da8954b5f01d47fdb1752abfe61144be', 'c01391671cef47d5a3374d9288ad4602', '0,1,15a826e8449445dea77e48b7c2a57ed3,5ad2594a34be41fbaeee1c5cdd6d6e2b,c01391671cef47d5a3374d9288ad4602,', '修改', 60, '', '', '', '0', 'forumtag:pfTopicTag:edit', '1', '2018-10-09 14:20:39', '1', '2018-10-09 14:20:39', '', '0');
+INSERT INTO `sys_menu` VALUES ('da8954b5f01d47fdb1752abfe61144be', 'c01391671cef47d5a3374d9288ad4602', '0,1,15a826e8449445dea77e48b7c2a57ed3,5ad2594a34be41fbaeee1c5cdd6d6e2b,c01391671cef47d5a3374d9288ad4602,', '修改', 60, '', '', '', '0', 'forumtag:pfTopicTag:edit', '1', '2018-10-09 14:20:39', '1', '2018-10-09 14:20:39', '', '1');
 INSERT INTO `sys_menu` VALUES ('dbee335f442446d2bf1df14ed9b91c18', '80', '0,1,2,79,80,', '代码模板管理', 60, '/gen/genTemplate', '', '', '1', 'gen:genTemplate:view,gen:genTemplate:edit', '1', '2018-10-10 19:30:20', '1', '2018-10-10 19:31:06', '', '0');
 INSERT INTO `sys_menu` VALUES ('df7ce823c5b24ff9bada43d992f373e2', 'ba8092291b40482db8fe7fc006ea3d76', '0,1,2,79,3c92c17886944d0687e73e286cada573,ba8092291b40482db8fe7fc006ea3d76,', '查看', 30, '', '', '', '0', 'test:testData:view', '1', '2013-08-12 13:10:05', '1', '2013-08-12 13:10:05', '', '0');
 INSERT INTO `sys_menu` VALUES ('dfbd55c13f444159b36164f847efad01', 'a19b8a5d1b604592a7421403276950bd', '0,1,1dcf3e0727804a3e8654b89f22cde7d9,a19b8a5d1b604592a7421403276950bd,', '官网SEO', 30, '/pseo/pSeo', '', '', '1', '', '1', '2018-10-05 09:56:59', '1', '2018-10-05 10:32:34', '', '1');
@@ -1756,32 +1761,34 @@ CREATE TABLE `sys_office` (
 -- Records of sys_office
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_office` VALUES ('1', '0', '0,', '山东省总公司', 10, '2', '100000', '1', '1', '', '', '', '', '', '', '1', '', '', '1', '2013-05-27 08:00:00', '1', '2018-10-07 18:14:11', '', '0');
-INSERT INTO `sys_office` VALUES ('10', '7', '0,1,7,', '市场部', 30, '3', '200003', '2', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('11', '7', '0,1,7,', '技术部', 40, '3', '200004', '2', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('12', '7', '0,1,7,', '历城区分公司', 0, '4', '201000', '1', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('13', '12', '0,1,7,12,', '公司领导', 10, '4', '201001', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('14', '12', '0,1,7,12,', '综合部', 20, '4', '201002', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('15', '12', '0,1,7,12,', '市场部', 30, '4', '201003', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('16', '12', '0,1,7,12,', '技术部', 40, '4', '201004', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('17', '7', '0,1,7,', '历下区分公司', 40, '5', '201010', '1', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('18', '17', '0,1,7,17,', '公司领导', 10, '5', '201011', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('19', '17', '0,1,7,17,', '综合部', 20, '5', '201012', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('2', '1', '0,1,', '公司领导', 10, '2', '100001', '2', '1', '', '', '', '15623221289', '', '', '1', '', '', '1', '2013-05-27 08:00:00', '1', '2018-10-07 17:46:12', '', '0');
-INSERT INTO `sys_office` VALUES ('20', '17', '0,1,7,17,', '市场部', 30, '5', '201013', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('21', '17', '0,1,7,17,', '技术部', 40, '5', '201014', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('22', '7', '0,1,7,', '高新区分公司', 50, '6', '201010', '1', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('23', '22', '0,1,7,22,', '公司领导', 10, '6', '201011', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('24', '22', '0,1,7,22,', '综合部', 20, '6', '201012', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('25', '22', '0,1,7,22,', '市场部', 30, '6', '201013', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('26', '22', '0,1,7,22,', '技术部', 40, '6', '201014', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('3', '1', '0,1,', '综合部', 20, '2', '100002', '2', '1', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('4', '1', '0,1,', '市场部', 30, '2', '100003', '2', '1', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('5', '1', '0,1,', '技术部', 40, '2', '100004', '2', '1', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('6', '1', '0,1,', '研发部', 50, '2', '100005', '2', '1', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('7', '1', '0,1,', '济南市分公司', 20, '3', '200000', '1', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('8', '7', '0,1,7,', '公司领导', 10, '3', '200001', '2', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_office` VALUES ('9', '7', '0,1,7,', '综合部', 20, '3', '200002', '2', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
+INSERT INTO `sys_office` VALUES ('1', '0', '0,', '百度总部', 10, '2', '100000', '1', '1', '', '', '', '', '', '', '1', '', '', '1', '2013-05-27 08:00:00', '1', '2018-10-11 14:19:17', '', '0');
+INSERT INTO `sys_office` VALUES ('10', '7', '0,1,7,', '市场部', 30, '3', '200003', '2', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('11', '7', '0,1,7,', '技术部', 40, '3', '200004', '2', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('12', '7', '0,1,7,', '历城区分公司', 0, '4', '201000', '1', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('13', '12', '0,1,7,12,', '公司领导', 10, '4', '201001', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('14', '12', '0,1,7,12,', '综合部', 20, '4', '201002', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('15', '12', '0,1,7,12,', '市场部', 30, '4', '201003', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('16', '12', '0,1,7,12,', '技术部', 40, '4', '201004', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('17', '7', '0,1,7,', '历下区分公司', 40, '5', '201010', '1', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('18', '17', '0,1,7,17,', '公司领导', 10, '5', '201011', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('19', '17', '0,1,7,17,', '综合部', 20, '5', '201012', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('2', '1', '0,1,', '公司领导', 10, '2', '100001', '2', '1', '', '', '', '15623221289', '', '', '1', '', '', '1', '2013-05-27 08:00:00', '1', '2018-10-07 17:46:12', '', '1');
+INSERT INTO `sys_office` VALUES ('20', '17', '0,1,7,17,', '市场部', 30, '5', '201013', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('21', '17', '0,1,7,17,', '技术部', 40, '5', '201014', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('22', '7', '0,1,7,', '高新区分公司', 50, '6', '201010', '1', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('23', '22', '0,1,7,22,', '公司领导', 10, '6', '201011', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('24', '22', '0,1,7,22,', '综合部', 20, '6', '201012', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('25', '22', '0,1,7,22,', '市场部', 30, '6', '201013', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('26', '22', '0,1,7,22,', '技术部', 40, '6', '201014', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('3', '1', '0,1,', '综合部', 20, '2', '100002', '2', '1', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('4', '1', '0,1,', '市场部', 30, '2', '100003', '2', '1', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('5', '1', '0,1,', '技术部', 40, '2', '100004', '2', '1', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('6', '95ec0763f12f4aaf9575ac81d069b260', '0,1,95ec0763f12f4aaf9575ac81d069b260,', '研发部', 50, '4', '100005', '2', '1', '', '', '', '', '', '', '1', '', '', '1', '2013-05-27 08:00:00', '1', '2018-10-11 14:21:17', '', '1');
+INSERT INTO `sys_office` VALUES ('7', '1', '0,1,', '济南市分公司', 20, '3', '200000', '1', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('7ac766af4ac749a89e015d1d1e3c20f1', '1', '0,1,', 'AI技术生态部', 30, '4', '100000001', '2', '1', '', '', '', '', '', '', '1', '', '', '1', '2018-10-11 14:23:13', '1', '2018-10-11 14:23:13', '', '0');
+INSERT INTO `sys_office` VALUES ('8', '7', '0,1,7,', '公司领导', 10, '3', '200001', '2', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('9', '7', '0,1,7,', '综合部', 20, '3', '200002', '2', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_office` VALUES ('95ec0763f12f4aaf9575ac81d069b260', '1', '0,1,', '百度总部', 30, '4', '100000006', '1', '1', '', '', '', '', '', '', '1', '', '', '1', '2018-10-11 14:20:12', '1', '2018-10-11 14:21:01', '', '1');
 COMMIT;
 
 -- ----------------------------
@@ -2162,20 +2169,20 @@ CREATE TABLE `sys_user` (
 -- Records of sys_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user` VALUES ('1', '1', '2', 'admin', 'a5eaa537ee49eeb81ddeb7b4d327f98fcef83943b0cd442f06b6e3a2', '0001', '系统管理员', 'xbs1019@126.com', '17610639158', '17610639158', NULL, '/userfiles/1/images/photo/2018/10/05de1b07.jpeg', '0:0:0:0:0:0:0:1', '2018-10-11 13:57:26', '1', '1', '2013-05-27 08:00:00', '1', '2018-10-08 09:41:51', '最高管理员', '0');
-INSERT INTO `sys_user` VALUES ('10', '7', '11', 'jn_jsb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0010', '济南技术部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_user` VALUES ('11', '12', '13', 'lc_admin', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0011', '济南历城领导', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_user` VALUES ('12', '12', '18', 'lx_admin', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0012', '济南历下领导', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_user` VALUES ('13', '22', '23', 'gx_admin', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0013', '济南高新领导', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_user` VALUES ('2', '1', '2', 'sd_admin', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0002', '管理员', '', '', '', '', '/userfiles/1/images/photo/2018/10/93a27ccc.jpeg', NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2018-10-06 21:41:03', '', '0');
-INSERT INTO `sys_user` VALUES ('3', '1', '3', 'sd_zhb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0003', '综合部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_user` VALUES ('4', '1', '4', 'sd_scb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0004', '市场部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_user` VALUES ('5', '1', '5', 'sd_jsb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0005', '技术部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_user` VALUES ('6', '1', '6', 'sd_yfb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0006', '研发部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_user` VALUES ('6aed48bd6d83477589f74ede00d5f4a7', '1', '2', 'user', 'fb5471d46115ad9d2691721b8ad1e1f992d457dc4bb8ec7e969856af', '1019', 'user', '', '18978675645', '', '3', '', '172.24.148.53', '2018-10-08 10:42:45', '1', '1', '2018-10-07 10:13:04', '1', '2018-10-11 11:28:35', '用户名user密码user，普通用户', '0');
-INSERT INTO `sys_user` VALUES ('7', '7', '8', 'jn_admin', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0007', '济南领导', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_user` VALUES ('8', '7', '9', 'jn_zhb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0008', '济南综合部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_user` VALUES ('9', '7', '10', 'jn_scb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0009', '济南市场部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
+INSERT INTO `sys_user` VALUES ('1', '1', '7ac766af4ac749a89e015d1d1e3c20f1', 'admin', 'a5eaa537ee49eeb81ddeb7b4d327f98fcef83943b0cd442f06b6e3a2', '0001', '系统管理员', 'xbs1019@126.com', '17610639158', '17610639158', '1', '/userfiles/1/images/photo/2018/10/05de1b07.jpeg', '0:0:0:0:0:0:0:1', '2018-10-11 14:37:05', '1', '1', '2013-05-27 08:00:00', '1', '2018-10-11 14:30:58', '最高管理员', '0');
+INSERT INTO `sys_user` VALUES ('10', '7', '11', 'jn_jsb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0010', '济南技术部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_user` VALUES ('11', '12', '13', 'lc_admin', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0011', '济南历城领导', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_user` VALUES ('12', '12', '18', 'lx_admin', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0012', '济南历下领导', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_user` VALUES ('13', '22', '23', 'gx_admin', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0013', '济南高新领导', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_user` VALUES ('2', '1', '2', 'sd_admin', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0002', '管理员', '', '', '', '', '/userfiles/1/images/photo/2018/10/93a27ccc.jpeg', NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2018-10-06 21:41:03', '', '1');
+INSERT INTO `sys_user` VALUES ('3', '1', '3', 'sd_zhb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0003', '综合部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_user` VALUES ('4', '1', '4', 'sd_scb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0004', '市场部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_user` VALUES ('5', '1', '5', 'sd_jsb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0005', '技术部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_user` VALUES ('6', '1', '6', 'sd_yfb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0006', '研发部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_user` VALUES ('6aed48bd6d83477589f74ede00d5f4a7', '1', '7ac766af4ac749a89e015d1d1e3c20f1', 'user', 'c03972532854b436bd79c7454e63ddeb49392389f578a478501ac2c0', '1019', '史艳军', '', '18978675645', '', '3', '', '0:0:0:0:0:0:0:1', '2018-10-11 14:33:22', '1', '1', '2018-10-07 10:13:04', '1', '2018-10-11 14:26:22', '用户名user密码user，普通用户', '0');
+INSERT INTO `sys_user` VALUES ('7', '7', '8', 'jn_admin', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0007', '济南领导', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_user` VALUES ('8', '7', '9', 'jn_zhb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0008', '济南综合部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
+INSERT INTO `sys_user` VALUES ('9', '7', '10', 'jn_scb', '02a3f0772fcca9f415adc990734b45c6f059c7d33ee28362c4852032', '0009', '济南市场部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '1');
 COMMIT;
 
 -- ----------------------------
