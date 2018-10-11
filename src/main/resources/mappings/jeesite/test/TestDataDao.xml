@@ -92,9 +92,8 @@
 		</choose>
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO test_data(
-			id,
 			user_id,
 			office_id,
 			area_id,
@@ -108,7 +107,6 @@
 			remarks,
 			del_flag
 		) VALUES (
-			#{id},
 			#{user.id},
 			#{office.id},
 			#{area.id},

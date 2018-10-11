@@ -5,13 +5,13 @@
  Source Server Type    : MySQL
  Source Server Version : 50641
  Source Host           : localhost:3306
- Source Schema         : db_master_myjeesite
+ Source Schema         : aicms
 
  Target Server Type    : MySQL
  Target Server Version : 50641
  File Encoding         : 65001
 
- Date: 11/10/2018 18:50:55
+ Date: 11/10/2018 20:28:46
 */
 
 SET NAMES utf8mb4;
@@ -22,7 +22,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `gen_scheme`;
 CREATE TABLE `gen_scheme` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `name` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '名称',
   `category` varchar(2000) COLLATE utf8_bin DEFAULT NULL COMMENT '分类',
   `package_name` varchar(500) COLLATE utf8_bin DEFAULT NULL COMMENT '生成包路径',
@@ -31,7 +31,7 @@ CREATE TABLE `gen_scheme` (
   `function_name` varchar(500) COLLATE utf8_bin DEFAULT NULL COMMENT '生成功能名',
   `function_name_simple` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '生成功能名（简写）',
   `function_author` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '生成功能作者',
-  `gen_table_id` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '生成表编号',
+  `gen_table_id` bigint(20) DEFAULT NULL COMMENT '生成表编号',
   `create_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '创建者',
   `create_date` datetime DEFAULT NULL COMMENT '创建时间',
   `update_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '更新者',
@@ -40,14 +40,14 @@ CREATE TABLE `gen_scheme` (
   `del_flag` char(1) COLLATE utf8_bin NOT NULL DEFAULT '0' COMMENT '删除标记（0：正常；1：删除）',
   PRIMARY KEY (`id`),
   KEY `gen_scheme_del_flag` (`del_flag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='生成方案';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='生成方案';
 
 -- ----------------------------
 -- Table structure for gen_table
 -- ----------------------------
 DROP TABLE IF EXISTS `gen_table`;
 CREATE TABLE `gen_table` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `name` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '名称',
   `comments` varchar(500) COLLATE utf8_bin DEFAULT NULL COMMENT '描述',
   `class_name` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '实体类名称',
@@ -62,15 +62,15 @@ CREATE TABLE `gen_table` (
   PRIMARY KEY (`id`),
   KEY `gen_table_name` (`name`),
   KEY `gen_table_del_flag` (`del_flag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='业务表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='业务表';
 
 -- ----------------------------
 -- Table structure for gen_table_column
 -- ----------------------------
 DROP TABLE IF EXISTS `gen_table_column`;
 CREATE TABLE `gen_table_column` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `gen_table_id` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '归属表编号',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `gen_table_id` bigint(20) DEFAULT NULL COMMENT '归属表编号',
   `name` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '名称',
   `comments` varchar(500) COLLATE utf8_bin DEFAULT NULL COMMENT '描述',
   `jdbc_type` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '列的数据类型的字节长度',
@@ -98,14 +98,14 @@ CREATE TABLE `gen_table_column` (
   KEY `gen_table_column_name` (`name`),
   KEY `gen_table_column_sort` (`sort`),
   KEY `gen_table_column_del_flag` (`del_flag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='业务表字段';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='业务表字段';
 
 -- ----------------------------
 -- Table structure for gen_template
 -- ----------------------------
 DROP TABLE IF EXISTS `gen_template`;
 CREATE TABLE `gen_template` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `name` varchar(200) COLLATE utf8_bin DEFAULT NULL COMMENT '名称',
   `category` varchar(2000) COLLATE utf8_bin DEFAULT NULL COMMENT '分类',
   `file_path` varchar(500) COLLATE utf8_bin DEFAULT NULL COMMENT '生成文件路径',
@@ -151,7 +151,7 @@ BEGIN;
 INSERT INTO `sys_area` VALUES (1, 0, '0,', '中国', 10, '100000', '1', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_area` VALUES (2, 1, '0,1,', '北京', 20, '110000', '2', '1', '2013-05-27 08:00:00', '1', '2018-10-11 14:23:48', '', '0');
 INSERT INTO `sys_area` VALUES (3, 2, '0,1,2,', '北京市', 30, '110101', '3', '1', '2013-05-27 08:00:00', '1', '2018-10-11 17:34:38', '', '0');
-INSERT INTO `sys_area` VALUES (4, 3, '0,1,2,3,', '海淀区', 40, '110102', '4', '1', '2013-05-27 08:00:00', '1', '2018-10-11 18:49:08', '', '0');
+INSERT INTO `sys_area` VALUES (4, 3, '0,1,2,3,', '海淀区', 40, '110102', '4', '1', '2013-05-27 08:00:00', '1', '2018-10-11 20:26:31', '', '0');
 INSERT INTO `sys_area` VALUES (5, 3, '0,1,2,3,', '东城区', 30, '100005', '4', '1', '2018-10-11 17:36:40', '1', '2018-10-11 18:04:41', '', '1');
 COMMIT;
 
@@ -251,7 +251,7 @@ CREATE TABLE `sys_log` (
   KEY `sys_log_request_uri` (`request_uri`),
   KEY `sys_log_type` (`type`),
   KEY `sys_log_create_date` (`create_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=231 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=586 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='日志表';
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -277,14 +277,14 @@ CREATE TABLE `sys_menu` (
   PRIMARY KEY (`id`),
   KEY `sys_menu_parent_id` (`parent_id`),
   KEY `sys_menu_del_flag` (`del_flag`)
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
 BEGIN;
 INSERT INTO `sys_menu` VALUES (1, 0, '0,', '功能菜单', 0, NULL, NULL, NULL, '1', NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
-INSERT INTO `sys_menu` VALUES (2, 1, '0,1,', '系统设置', 200, NULL, NULL, NULL, '1', NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
+INSERT INTO `sys_menu` VALUES (2, 1, '0,1,', '系统设置', 20, NULL, NULL, NULL, '1', NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_menu` VALUES (3, 2, '0,1,2,', '系统设置', 980, NULL, NULL, NULL, '1', NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_menu` VALUES (4, 3, '0,1,2,3,', '菜单管理', 30, '/sys/menu/', NULL, 'list-alt', '1', NULL, '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
 INSERT INTO `sys_menu` VALUES (5, 4, '0,1,2,3,4,', '查看', 30, NULL, NULL, NULL, '0', 'sys:menu:view', '1', '2013-05-27 08:00:00', '1', '2013-05-27 08:00:00', NULL, '0');
@@ -323,6 +323,15 @@ INSERT INTO `sys_menu` VALUES (80, 79, '0,1,2,79,', '代码生成', 50, NULL, NU
 INSERT INTO `sys_menu` VALUES (81, 80, '0,1,2,79,80,', '生成方案配置', 30, '/gen/genScheme', NULL, NULL, '1', 'gen:genScheme:view,gen:genScheme:edit', '1', '2013-10-16 08:00:00', '1', '2013-10-16 08:00:00', NULL, '0');
 INSERT INTO `sys_menu` VALUES (82, 80, '0,1,2,79,80,', '业务表配置', 20, '/gen/genTable', NULL, NULL, '1', 'gen:genTable:view,gen:genTable:edit,gen:genTableColumn:view,gen:genTableColumn:edit', '1', '2013-10-16 08:00:00', '1', '2013-10-16 08:00:00', NULL, '0');
 INSERT INTO `sys_menu` VALUES (84, 67, '0,1,2,67,', '连接池监视', 40, '/../druid', NULL, NULL, '1', NULL, '1', '2013-10-18 08:00:00', '1', '2013-10-18 08:00:00', NULL, '0');
+INSERT INTO `sys_menu` VALUES (86, 90, '0,1,90,', '测试站点', 230, '', '', '', '1', '', '1', '2018-10-11 19:26:04', '1', '2018-10-11 19:32:50', '', '0');
+INSERT INTO `sys_menu` VALUES (87, 86, '0,1,90,86,', '测试站点', 30, '/site/testSite', '', '', '1', '', '1', '2018-10-11 19:28:01', '1', '2018-10-11 19:28:01', '', '0');
+INSERT INTO `sys_menu` VALUES (88, 87, '0,1,90,86,87,', '查看', 30, '', '', '', '0', 'site:testSite:view', '1', '2018-10-11 19:29:30', '1', '2018-10-11 19:30:13', '', '0');
+INSERT INTO `sys_menu` VALUES (89, 87, '0,1,90,86,87,', '修改', 60, '', '', '', '0', 'site:testSite:edit', '1', '2018-10-11 19:29:49', '1', '2018-10-11 19:29:49', '', '0');
+INSERT INTO `sys_menu` VALUES (90, 1, '0,1,', '官网CMS', 10, '', '', '', '1', '', '1', '2018-10-11 19:32:38', '1', '2018-10-11 19:32:38', '', '0');
+INSERT INTO `sys_menu` VALUES (91, 90, '0,1,90,', 'SEO管理', 50, '', '', '', '1', '', '1', '2018-10-11 19:34:17', '1', '2018-10-11 19:34:17', '', '0');
+INSERT INTO `sys_menu` VALUES (92, 91, '0,1,90,91,', 'SEO管理', 30, '/seo/testSeo', '', '', '1', '', '1', '2018-10-11 19:34:30', '1', '2018-10-11 19:34:30', '', '0');
+INSERT INTO `sys_menu` VALUES (93, 92, '0,1,90,91,92,', '查看', 30, '', '', '', '0', 'seo:testSeo:view', '1', '2018-10-11 19:34:52', '1', '2018-10-11 19:34:52', '', '0');
+INSERT INTO `sys_menu` VALUES (94, 92, '0,1,90,91,92,', '修改', 60, '', '', '', '0', 'seo:testSeo:edit', '1', '2018-10-11 19:35:11', '1', '2018-10-11 19:35:11', '', '0');
 COMMIT;
 
 -- ----------------------------
@@ -396,7 +405,7 @@ CREATE TABLE `sys_role` (
 -- Records of sys_role
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_role` VALUES (1, 2, '系统管理员', 'dept', 'assignment', '1', '1', '1', '1', '2013-05-27 08:00:00', '1', '2018-10-11 18:49:34', '', '0');
+INSERT INTO `sys_role` VALUES (1, 2, '系统管理员', 'dept', 'assignment', '1', '1', '1', '1', '2013-05-27 08:00:00', '1', '2018-10-11 20:26:46', '', '0');
 COMMIT;
 
 -- ----------------------------
@@ -453,6 +462,15 @@ INSERT INTO `sys_role_menu` VALUES (1, 80);
 INSERT INTO `sys_role_menu` VALUES (1, 81);
 INSERT INTO `sys_role_menu` VALUES (1, 82);
 INSERT INTO `sys_role_menu` VALUES (1, 84);
+INSERT INTO `sys_role_menu` VALUES (1, 86);
+INSERT INTO `sys_role_menu` VALUES (1, 87);
+INSERT INTO `sys_role_menu` VALUES (1, 88);
+INSERT INTO `sys_role_menu` VALUES (1, 89);
+INSERT INTO `sys_role_menu` VALUES (1, 90);
+INSERT INTO `sys_role_menu` VALUES (1, 91);
+INSERT INTO `sys_role_menu` VALUES (1, 92);
+INSERT INTO `sys_role_menu` VALUES (1, 93);
+INSERT INTO `sys_role_menu` VALUES (1, 94);
 COMMIT;
 
 -- ----------------------------
@@ -504,13 +522,13 @@ CREATE TABLE `sys_user` (
   KEY `sys_user_company_id` (`company_id`),
   KEY `sys_user_update_date` (`update_date`),
   KEY `sys_user_del_flag` (`del_flag`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户表';
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user` VALUES (1, 1, 2, 'admin', 'a5eaa537ee49eeb81ddeb7b4d327f98fcef83943b0cd442f06b6e3a2', '0001', '系统管理员', 'xbs1019@126.com', '17610639158', '17610639158', '1', '/userfiles/1/images/photo/2018/10/05de1b07.jpeg', '0:0:0:0:0:0:0:1', '2018-10-11 18:50:10', '1', '1', '2013-05-27 08:00:00', '1', '2018-10-11 18:48:51', '最高管理员', '0');
+INSERT INTO `sys_user` VALUES (1, 1, 2, 'admin', 'a5eaa537ee49eeb81ddeb7b4d327f98fcef83943b0cd442f06b6e3a2', '0001', '系统管理员', 'xbs1019@126.com', '17610639158', '17610639158', '1', '/userfiles/1/images/photo/2018/10/05de1b07.jpeg', '0:0:0:0:0:0:0:1', '2018-10-11 20:26:17', '1', '1', '2013-05-27 08:00:00', '1', '2018-10-11 20:27:24', '最高管理员', '0');
 COMMIT;
 
 -- ----------------------------
@@ -535,10 +553,10 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `test_data`;
 CREATE TABLE `test_data` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `user_id` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '归属用户',
-  `office_id` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '归属部门',
-  `area_id` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '归属区域',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '归属用户',
+  `office_id` bigint(20) DEFAULT NULL COMMENT '归属部门',
+  `area_id` bigint(20) DEFAULT NULL COMMENT '归属区域',
   `name` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '名称',
   `sex` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '性别',
   `in_date` date DEFAULT NULL COMMENT '加入日期',
@@ -557,8 +575,8 @@ CREATE TABLE `test_data` (
 -- ----------------------------
 DROP TABLE IF EXISTS `test_data_child`;
 CREATE TABLE `test_data_child` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `test_data_main_id` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '业务主表ID',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `test_data_main_id` bigint(20) DEFAULT NULL COMMENT '业务主表ID',
   `name` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '名称',
   `create_by` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '创建者',
   `create_date` datetime NOT NULL COMMENT '创建时间',
@@ -575,8 +593,8 @@ CREATE TABLE `test_data_child` (
 -- ----------------------------
 DROP TABLE IF EXISTS `test_data_main`;
 CREATE TABLE `test_data_main` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `user_id` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '归属用户',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `user_id` bigint(64) DEFAULT NULL COMMENT '归属用户',
   `office_id` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '归属部门',
   `area_id` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '归属区域',
   `name` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '名称',
@@ -611,7 +629,7 @@ CREATE TABLE `test_seo` (
   `remarks` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '备注信息',
   `del_flag` char(1) COLLATE utf8_bin NOT NULL DEFAULT '0' COMMENT '删除标记',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='官网SEO';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='官网SEO';
 
 -- ----------------------------
 -- Table structure for test_site
@@ -624,20 +642,12 @@ CREATE TABLE `test_site` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
--- Records of test_site
--- ----------------------------
-BEGIN;
-INSERT INTO `test_site` VALUES (1, 'master测试site名称1');
-INSERT INTO `test_site` VALUES (2, '测试添加');
-COMMIT;
-
--- ----------------------------
 -- Table structure for test_tree
 -- ----------------------------
 DROP TABLE IF EXISTS `test_tree`;
 CREATE TABLE `test_tree` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `parent_id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '父级编号',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `parent_id` bigint(20) NOT NULL COMMENT '父级编号',
   `parent_ids` varchar(2000) COLLATE utf8_bin NOT NULL COMMENT '所有父级编号',
   `name` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '名称',
   `sort` decimal(10,0) NOT NULL COMMENT '排序',

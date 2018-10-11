@@ -79,7 +79,7 @@
 		ORDER BY a.code
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO sys_office(
 			parent_id, 
 			parent_ids, 

@@ -51,9 +51,8 @@
 		ORDER BY a.sort ASC
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO gen_table_column(
-			id, 
 			gen_table_id, 
 			name, 
 			comments, 
@@ -77,7 +76,6 @@
 			remarks, 
 			del_flag
 		) VALUES (
-			#{id}, 
 			#{genTable.id}, 
 			#{name}, 
 			#{comments}, 

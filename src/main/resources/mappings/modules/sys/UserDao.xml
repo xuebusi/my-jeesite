@@ -224,7 +224,7 @@
 	</select>
 	
 	<!-- 插入用户 -->
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO sys_user(
 			company_id, 
 			office_id, 

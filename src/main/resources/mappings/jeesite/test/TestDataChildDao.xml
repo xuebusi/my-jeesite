@@ -71,9 +71,8 @@
 		</choose>
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO test_data_child(
-			id,
 			test_data_main_id,
 			name,
 			create_by,
@@ -83,7 +82,6 @@
 			remarks,
 			del_flag
 		) VALUES (
-			#{id},
 			#{testDataMain.id},
 			#{name},
 			#{createBy.id},

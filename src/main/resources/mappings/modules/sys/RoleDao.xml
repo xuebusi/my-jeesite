@@ -118,7 +118,7 @@
 		ORDER BY o.code, a.name
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO sys_role(
 			office_id, 
 			name, 

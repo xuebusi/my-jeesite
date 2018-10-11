@@ -43,7 +43,7 @@
 		ORDER BY type
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO sys_dict(
 			value, 
 			label, 

@@ -35,7 +35,7 @@
 		ORDER BY a.create_date DESC
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO sys_log(
 			type, 
 			title,

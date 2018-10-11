@@ -43,9 +43,8 @@
 		ORDER BY a.id DESC
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO sys_user(
-			id, 
 			name, 
 			create_by, 
 			create_date, 
@@ -54,7 +53,6 @@
 			remarks, 
 			del_flag
 		) VALUES (
-			#{id}, 
 			#{name}, 
 			#{createBy.id}, 
 			#{createDate}, 

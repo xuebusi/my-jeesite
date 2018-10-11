@@ -3,16 +3,14 @@
  */
 package com.baidu.cms.common.persistence;
 
-import java.util.Date;
-
 import com.baidu.cms.modules.sys.entity.User;
 import com.baidu.cms.modules.sys.utils.UserUtils;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Length;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.baidu.cms.common.utils.IdGen;
+import java.util.Date;
 
 /**
  * 数据Entity类
@@ -45,9 +43,9 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
 	@Override
 	public void preInsert(){
 		// 不限制ID为UUID，调用setIsNewRecord()使用自定义ID
-		if (!this.isNewRecord){
+		/*if (!this.isNewRecord){
 			setId(IdGen.uuid());
-		}
+		}*/
 		User user = UserUtils.getUser();
 		if (StringUtils.isNotBlank(user.getId())){
 			this.updateBy = user;
