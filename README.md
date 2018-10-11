@@ -24,7 +24,9 @@
     Sorry, you are not permitted to view this page.
     原因是web.xml中关于druid访问路径默认配置的是127.0.0.1,修改DruidStatView中的<param-value>为本机ip地址或域名重启项目即可。
 
-
+踩坑5:
+    如果使用数据库的自增主键的话，在页面上使用代码生成器时，注意不要勾选插入ID列。另外由于用户模块在插入用户表时，
+    会保存用户角色关系表，而保存关系表需要用户的ID，所有保存用户之后要返回数据库自增ID。
 
 
 
