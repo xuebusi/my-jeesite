@@ -3,14 +3,12 @@
  */
 package com.baidu.cms.modules.gen.util;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.List;
-import java.util.Map;
-
+import com.baidu.cms.common.config.Global;
+import com.baidu.cms.common.mapper.JaxbMapper;
+import com.baidu.cms.common.utils.DateUtils;
+import com.baidu.cms.common.utils.FileUtils;
+import com.baidu.cms.common.utils.FreeMarkers;
+import com.baidu.cms.common.utils.StringUtils;
 import com.baidu.cms.modules.gen.entity.GenCategory;
 import com.baidu.cms.modules.gen.entity.GenConfig;
 import com.baidu.cms.modules.gen.entity.GenScheme;
@@ -21,20 +19,21 @@ import com.baidu.cms.modules.sys.entity.Area;
 import com.baidu.cms.modules.sys.entity.Office;
 import com.baidu.cms.modules.sys.entity.User;
 import com.baidu.cms.modules.sys.utils.UserUtils;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.baidu.cms.common.config.Global;
-import com.baidu.cms.common.mapper.JaxbMapper;
-import com.baidu.cms.common.utils.DateUtils;
-import com.baidu.cms.common.utils.FileUtils;
-import com.baidu.cms.common.utils.FreeMarkers;
-import com.baidu.cms.common.utils.StringUtils;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 代码生成工具类
@@ -255,7 +254,6 @@ public class GenUtils {
 	/**
 	 * 根据分类获取模板列表
 	 * @param config
-	 * @param genScheme
 	 * @param isChildTable 是否是子表
 	 * @return
 	 */
@@ -292,7 +290,6 @@ public class GenUtils {
 	/**
 	 * 获取数据模型
 	 * @param genScheme
-	 * @param genTable
 	 * @return
 	 */
 	public static Map<String, Object> getDataModel(GenScheme genScheme){
@@ -304,6 +301,10 @@ public class GenUtils {
 		model.put("subModuleName", StringUtils.lowerCase(genScheme.getSubModuleName()));
 		model.put("className", StringUtils.uncapitalize(genScheme.getGenTable().getClassName()));
 		model.put("ClassName", StringUtils.capitalize(genScheme.getGenTable().getClassName()));
+		// TODO 库名
+		model.put("tableSchema", genScheme.getGenTable().getTableSchema());
+		// TODO 数据库key
+		model.put("dataSourceKey", genScheme.getGenTable().getDataSourceKey());
 		
 		model.put("functionName", genScheme.getFunctionName());
 		model.put("functionNameSimple", genScheme.getFunctionNameSimple());
@@ -325,11 +326,7 @@ public class GenUtils {
 	}
 	
 	/**
-	 * 生成到文件
-	 * @param tpl
-	 * @param model
-	 * @param replaceFile
-	 * @return
+	 *  生成到文件
 	 */
 	public static String generateToFile(GenTemplate tpl, Map<String, Object> model, boolean isReplaceFile){
 		// 获取生成文件

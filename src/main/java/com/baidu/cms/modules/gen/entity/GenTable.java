@@ -19,6 +19,8 @@ import com.baidu.cms.common.utils.StringUtils;
 public class GenTable extends DataEntity<GenTable> {
 	
 	private static final long serialVersionUID = 1L;
+
+	private String dataSourceKey;// 数据库路由key
 	private String tableSchema;// 库名
 	private String name; 	// 名称
 	private String comments;		// 描述
@@ -41,6 +43,14 @@ public class GenTable extends DataEntity<GenTable> {
 
 	public GenTable(String id){
 		super(id);
+	}
+
+	public String getDataSourceKey() {
+		return dataSourceKey;
+	}
+
+	public void setDataSourceKey(String dataSourceKey) {
+		this.dataSourceKey = dataSourceKey;
 	}
 
 	public String getTableSchema() {

@@ -78,12 +78,12 @@
 	<!-- 数据源配置, 使用 BoneCP 数据库连接池 -->
 	<bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
 	    <!-- 数据源驱动类可不写，Druid默认会自动根据URL识别DriverClass -->
-	    <property name="driverClassName" value="${master.jdbc.driver}" />
+	    <property name="driverClassName" value="${jdbc.master.driver}" />
 	    
 		<!-- 基本属性 url、user、password -->
-		<property name="url" value="${master.jdbc.url}" />
-		<property name="username" value="${master.jdbc.username}" />
-		<property name="password" value="${master.jdbc.password}" />
+		<property name="url" value="${jdbc.master.url}" />
+		<property name="username" value="${jdbc.master.username}" />
+		<property name="password" value="${jdbc.master.password}" />
 
 		<!-- 配置初始化大小、最小、最大 -->
 		<property name="initialSize" value="${jdbc.pool.init}" />
@@ -110,12 +110,12 @@
 
 	<bean id="slave1DataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
 		<!-- 数据源驱动类可不写，Druid默认会自动根据URL识别DriverClass -->
-		<property name="driverClassName" value="${slave1.jdbc.driver}" />
+		<property name="driverClassName" value="${jdbc.slave1.driver}" />
 
 		<!-- 基本属性 url、user、password -->
-		<property name="url" value="${slave1.jdbc.url}" />
-		<property name="username" value="${slave1.jdbc.username}" />
-		<property name="password" value="${slave1.jdbc.password}" />
+		<property name="url" value="${jdbc.slave1.url}" />
+		<property name="username" value="${jdbc.slave1.username}" />
+		<property name="password" value="${jdbc.slave1.password}" />
 
 		<!-- 配置初始化大小、最小、最大 -->
 		<property name="initialSize" value="${jdbc.pool.init}" />
@@ -142,12 +142,12 @@
 
 	<bean id="slave2DataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
 		<!-- 数据源驱动类可不写，Druid默认会自动根据URL识别DriverClass -->
-		<property name="driverClassName" value="${slave2.jdbc.driver}" />
+		<property name="driverClassName" value="${jdbc.slave2.driver}" />
 
 		<!-- 基本属性 url、user、password -->
-		<property name="url" value="${slave2.jdbc.url}" />
-		<property name="username" value="${slave2.jdbc.username}" />
-		<property name="password" value="${slave2.jdbc.password}" />
+		<property name="url" value="${jdbc.slave2.url}" />
+		<property name="username" value="${jdbc.slave2.username}" />
+		<property name="password" value="${jdbc.slave2.password}" />
 
 		<!-- 配置初始化大小、最小、最大 -->
 		<property name="initialSize" value="${jdbc.pool.init}" />

@@ -5,6 +5,9 @@ package com.baidu.cms.common.config;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.core.io.DefaultResourceLoader;
@@ -78,7 +81,24 @@ public class Global {
 		}
 		return value;
 	}
-	
+
+	/**
+	 *  获取配置中的所有key
+	 *
+	 *  @author: shiyanjun
+	 *  @Date: 2018/10/11 上午10:23
+	 */
+	public static List<String> getPropKeys () {
+		List<String> list = new ArrayList<String>();
+		Enumeration<?> names = loader.getProperties().propertyNames();
+		if (names != null) {
+			while (names.hasMoreElements()) {
+				list.add(names.nextElement().toString());
+			}
+		}
+		return list;
+	}
+
 	/**
 	 * 获取管理端根路径
 	 */
