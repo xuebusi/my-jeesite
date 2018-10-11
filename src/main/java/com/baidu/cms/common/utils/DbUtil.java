@@ -39,8 +39,8 @@ public class DbUtil {
      */
     private static String resolveDbName(String jdbcUrl) {
         if (StringUtils.isNotBlank(jdbcUrl) && jdbcUrl.startsWith("jdbc:mysql:")) {
-            String[] split1 = jdbcUrl.split(":");
-            String len = split1[split1.length - 1];
+            String[] split = jdbcUrl.split(":");
+            String len = split[split.length - 1];
             int last = len.lastIndexOf("?") == -1 ? len.length() : len.lastIndexOf("?");
             String dbName = len.substring(len.indexOf("/") + 1, last);
             return dbName;
