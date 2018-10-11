@@ -8,6 +8,7 @@ import com.baidu.cms.common.datasource.DataSourceEnum;
 import com.baidu.cms.common.datasource.DynamicDatasourceHolder;
 import com.baidu.cms.common.persistence.Page;
 import com.baidu.cms.common.service.BaseService;
+import com.baidu.cms.common.utils.DbUtil;
 import com.baidu.cms.common.utils.StringUtils;
 import com.baidu.cms.modules.gen.dao.GenDataBaseDictDao;
 import com.baidu.cms.modules.gen.dao.GenTableColumnDao;
@@ -100,6 +101,7 @@ public class GenTableService extends BaseService {
 			List<GenTable> list = null;
 			DataSourceEnum[] enums = DataSourceEnum.values();
 			for (DataSourceEnum e : enums) {
+				// 根据数据库路由key切换数据源
 				DynamicDatasourceHolder.setDataSourceKey(e.getKey());
 				list = genDataBaseDictDao.findTableList(genTable);
 				DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.MASTER.getKey());
@@ -119,17 +121,13 @@ public class GenTableService extends BaseService {
 					genTable.setClassName(StringUtils.toCapitalizeCamelCase(genTable.getName()));
 				}
 
-				// 添加新列
-				// TODO 如果主库没查到，查从库，待优化
-				List<GenTableColumn> columnList = null;
-				for (DataSourceEnum e : enums) {
-					DynamicDatasourceHolder.setDataSourceKey(e.getKey());
-					columnList = genDataBaseDictDao.findTableColumnList(genTable);
-					DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.MASTER.getKey());
-					if (!CollectionUtils.isEmpty(columnList)) {
-						break;
-					}
-				}
+				// 根据数据库名取得数据库的路由key
+				String tableSchema = genTable.getTableSchema();
+				String dataSourceKey = DbUtil.getDataSourceKey(tableSchema);
+				// 根据数据库路由key切换数据源
+				DynamicDatasourceHolder.setDataSourceKey(dataSourceKey);
+				List<GenTableColumn> columnList = genDataBaseDictDao.findTableColumnList(genTable);
+				DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.MASTER.getKey());
 
 				for (GenTableColumn column : columnList){
 					boolean b = false;

@@ -85,7 +85,7 @@ public class DbUtil {
             String key = it.next();
             String value = map.get(key);
             if (value.equalsIgnoreCase(dbName)) {
-                return value;
+                return key;
             }
         }
         return null;

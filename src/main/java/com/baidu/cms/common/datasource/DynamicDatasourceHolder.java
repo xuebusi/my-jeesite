@@ -15,7 +15,7 @@ public class DynamicDatasourceHolder {
      * @param key
      */
     public static void setDataSourceKey(String key) {
-        System.out.println(">>>>>>>>设置数据源key:" + key);
+        // System.out.println(">>>>>>>>设置数据源key:" + key);
         holder.set(key);
     }
 
@@ -24,7 +24,7 @@ public class DynamicDatasourceHolder {
      * @return
      */
     public static String getDataSourceKey() {
-        System.out.println(">>>>>>>>获取数据源key:" + holder.get());
+        // System.out.println(">>>>>>>>获取数据源key:" + holder.get());
         return holder.get();
     }
 
