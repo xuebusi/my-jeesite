@@ -74,7 +74,7 @@ public class GenTableController extends BaseController {
 		for (DataSourceEnum e : enums) {
 			DynamicDatasourceHolder.setDataSourceKey(e.getKey());
 			tableList.addAll(genTableService.findTableListFormDb(new GenTable()));
-			DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.MASTER.getKey());
+			DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.BASE.getKey());
 		}
 		model.addAttribute("tableList", tableList);
 

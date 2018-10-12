@@ -19,5 +19,5 @@ import java.lang.annotation.Target;
 @Documented
 public @interface DataSource {
 
-    DataSourceEnum value() default DataSourceEnum.MASTER;
+    DataSourceEnum value() default DataSourceEnum.BASE;
 }

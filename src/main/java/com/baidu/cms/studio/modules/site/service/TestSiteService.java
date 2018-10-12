@@ -20,7 +20,7 @@ import java.util.List;
  * @version 2018-10-10
  */
 @Service
-@DataSource(DataSourceEnum.SLAVE1)
+@DataSource(DataSourceEnum.STUDIO)
 @Transactional(readOnly = true)
 public class TestSiteService extends CrudService<TestSiteDao, TestSite> {
 

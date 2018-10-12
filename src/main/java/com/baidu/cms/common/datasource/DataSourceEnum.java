@@ -9,19 +9,14 @@ package com.baidu.cms.common.datasource;
 public enum DataSourceEnum {
 
     /**
-     * 主库
+     * 默认库
      */
-    MASTER("MASTER"),
+    BASE("BASE"),
 
     /**
-     * 从库1
+     * 业务库
      */
-    SLAVE1("SLAVE1"),
-
-    /**
-     * 从库2
-     */
-    SLAVE2("SLAVE2");
+    STUDIO("STUDIO");
 
 
     private String key;

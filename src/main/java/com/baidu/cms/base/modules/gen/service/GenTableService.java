@@ -30,7 +30,7 @@ import java.util.List;
  * @version 2013-10-15
  */
 @Service
-@DataSource(DataSourceEnum.MASTER)
+@DataSource(DataSourceEnum.BASE)
 @Transactional(readOnly = true)
 public class GenTableService extends BaseService {
 
@@ -104,7 +104,7 @@ public class GenTableService extends BaseService {
 				// 根据数据库路由key切换数据源
 				DynamicDatasourceHolder.setDataSourceKey(e.getKey());
 				list = genDataBaseDictDao.findTableList(genTable);
-				DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.MASTER.getKey());
+				DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.BASE.getKey());
 				if (!CollectionUtils.isEmpty(list)) {
 					break;
 				}
@@ -127,7 +127,7 @@ public class GenTableService extends BaseService {
 				// 根据数据库路由key切换数据源
 				DynamicDatasourceHolder.setDataSourceKey(dataSourceKey);
 				List<GenTableColumn> columnList = genDataBaseDictDao.findTableColumnList(genTable);
-				DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.MASTER.getKey());
+				DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.BASE.getKey());
 
 				for (GenTableColumn column : columnList){
 					boolean b = false;

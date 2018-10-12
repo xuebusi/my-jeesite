@@ -5,6 +5,8 @@ package com.baidu.cms.studio.modules.seo.service;
 
 import java.util.List;
 
+import com.baidu.cms.common.annotation.DataSource;
+import com.baidu.cms.common.datasource.DataSourceEnum;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +21,7 @@ import com.baidu.cms.studio.modules.seo.dao.TestSeoDao;
  * @version 2018-10-07
  */
 @Service
+@DataSource(DataSourceEnum.STUDIO)
 @Transactional(readOnly = true)
 public class TestSeoService extends CrudService<TestSeoDao, TestSeo> {
 

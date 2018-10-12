@@ -27,20 +27,10 @@ public class DataSourceAspect {
     /**
      * 数据源切面
      */
-    @Pointcut("execution(* com.baidu.cms.base.modules.ai..*Service.*(..))")
+    @Pointcut("execution(* com.baidu.cms.studio.modules..*Service.*(..))")
     public void pointcut() {
 
     }
-
-    /*@Around("pointcut()")
-    public Object around(ProceedingJoinPoint pjp) throws Throwable {
-        System.out.println("---------------------调用前---------------------");
-        DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.SLAVE);
-        Object result = pjp.proceed();
-        System.out.println("---------------------调用后---------------------");
-        DynamicDatasourceHolder.setDataSourceKey(DataSourceEnum.MASTER);
-        return result;
-    }*/
 
     /**
      * 根据@DataSource的属性值设置不同的dataSourceKey,以供DynamicDataSource
