@@ -28,13 +28,13 @@
 <body>
 	<ul class="nav nav-tabs">
 		<li><a href="${ctx}/tool/genMenu/">生成记录</a></li>
-		<li class="active"><a href="${ctx}/tool/genMenu/form?id=${genMenu.id}">生成菜单<shiro:hasPermission name="tool:genMenu:edit">${not empty genMenu.id?'修改':'添加'}</shiro:hasPermission><shiro:lacksPermission name="tool:genMenu:edit">查看</shiro:lacksPermission></a></li>
+		<li class="active"><a href="${ctx}/tool/genMenu/form?id=${genMenu.id}"><shiro:hasPermission name="tool:genMenu:edit">${not empty genMenu.id?'生成详情':'生成菜单'}</shiro:hasPermission><shiro:lacksPermission name="tool:genMenu:edit">查看</shiro:lacksPermission></a></li>
 	</ul><br/>
 	<form:form id="inputForm" modelAttribute="genMenu" action="${ctx}/tool/genMenu/save" method="post" class="form-horizontal">
 		<form:hidden path="id"/>
 		<sys:message content="${message}"/>		
 		<div class="control-group">
-			<label class="control-label">名称：</label>
+			<label class="control-label">菜单名称：</label>
 			<div class="controls">
 				<form:input path="menuName" htmlEscape="false" maxlength="50" class="input-xlarge required"/>
 				<span class="help-inline"><font color="red">*</font> </span>
@@ -45,20 +45,23 @@
 			<div class="controls">
 				<form:input path="href" htmlEscape="false" maxlength="50" class="input-xlarge required"/>
 				<span class="help-inline"><font color="red">*</font> </span>
+				<span class="help-inline">类上的访问路径，例如 /sys/user</span>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">查看权限URL：</label>
+			<label class="control-label">查看权限：</label>
 			<div class="controls">
 				<form:input path="viewPermUrl" htmlEscape="false" maxlength="50" class="input-xlarge required"/>
 				<span class="help-inline"><font color="red">*</font> </span>
+				<span class="help-inline">方法上的权限标识，例如 sys:user:view</span>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">修改权限URL：</label>
+			<label class="control-label">修改权限：</label>
 			<div class="controls">
 				<form:input path="editPermUrl" htmlEscape="false" maxlength="50" class="input-xlarge required"/>
 				<span class="help-inline"><font color="red">*</font> </span>
+				<span class="help-inline">方法上的权限标识，例如 sys:user:edit</span>
 			</div>
 		</div>
 		<div class="control-group">
