@@ -95,7 +95,11 @@ public class GenUtils {
 			column.setIsPk(genTable.getPkList().contains(column.getName())?"1":"0");
 
 			// 插入字段
-			column.setIsInsert("1");
+			// 默认主键ID不要插入，使用数据库的自增ID --shiyanjun
+			if (!"1".equals(column.getIsPk())) {
+				column.setIsInsert("1");
+			}
+
 			
 			// 编辑字段
 			if (!StringUtils.equalsIgnoreCase(column.getName(), "id")
@@ -106,7 +110,8 @@ public class GenUtils {
 			}
 
 			// 列表字段
-			if (StringUtils.equalsIgnoreCase(column.getName(), "name")
+			if (StringUtils.equalsIgnoreCase(column.getName(), "id")
+					|| StringUtils.equalsIgnoreCase(column.getName(), "name")
 					|| StringUtils.equalsIgnoreCase(column.getName(), "title")
 					|| StringUtils.equalsIgnoreCase(column.getName(), "remarks")
 					|| StringUtils.equalsIgnoreCase(column.getName(), "update_date")){

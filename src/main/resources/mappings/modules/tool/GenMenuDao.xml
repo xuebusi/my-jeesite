@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baidu.cms.modules.tool.dao.GenMenuDao">
+    
+	<sql id="genMenuColumns">
+		a.id AS "id",
+		a.menu_name AS "menuName",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		a.href AS "href",
+		a.view_perm_url AS "viewPermUrl",
+		a.edit_perm_url AS "editPermUrl"
+	</sql>
+	
+	<sql id="genMenuJoins">
+	</sql>
+    
+	<select id="get" resultType="GenMenu">
+		SELECT 
+			<include refid="genMenuColumns"/>
+		FROM gen_menu a
+		<include refid="genMenuJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="GenMenu">
+		SELECT 
+			<include refid="genMenuColumns"/>
+		FROM gen_menu a
+		<include refid="genMenuJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="menuName != null and menuName != ''">
+				AND a.menu_name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{menuName}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{menuName}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{menuName},'%')</if>
+			</if>
+			<if test="createDate != null and createDate != ''">
+				AND a.create_date = #{createDate}
+			</if>
+			<if test="href != null and href != ''">
+				AND a.href LIKE 
+					<if test="dbName == 'oracle'">'%'||#{href}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{href}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{href},'%')</if>
+			</if>
+			<if test="viewPermUrl != null and viewPermUrl != ''">
+				AND a.view_perm_url LIKE 
+					<if test="dbName == 'oracle'">'%'||#{viewPermUrl}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{viewPermUrl}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{viewPermUrl},'%')</if>
+			</if>
+			<if test="editPermUrl != null and editPermUrl != ''">
+				AND a.edit_perm_url LIKE 
+					<if test="dbName == 'oracle'">'%'||#{editPermUrl}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{editPermUrl}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{editPermUrl},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="GenMenu">
+		SELECT 
+			<include refid="genMenuColumns"/>
+		FROM gen_menu a
+		<include refid="genMenuJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		INSERT INTO gen_menu(
+			menu_name,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag,
+			href,
+			view_perm_url,
+			edit_perm_url
+		) VALUES (
+			#{menuName},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag},
+			#{href},
+			#{viewPermUrl},
+			#{editPermUrl}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE gen_menu SET 	
+			menu_name = #{menuName},
+			remarks = #{remarks},
+			href = #{href},
+			view_perm_url = #{viewPermUrl},
+			edit_perm_url = #{editPermUrl}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE gen_menu SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>
