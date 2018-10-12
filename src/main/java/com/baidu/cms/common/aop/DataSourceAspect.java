@@ -27,7 +27,7 @@ public class DataSourceAspect {
     /**
      * 数据源切面
      */
-    @Pointcut("execution(* com.baidu.cms.modules.ai..*Service.*(..))")
+    @Pointcut("execution(* com.baidu.cms.base.modules.ai..*Service.*(..))")
     public void pointcut() {
 
     }

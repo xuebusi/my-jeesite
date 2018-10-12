@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.baidu.cms.common.utils.Reflections;
-import com.baidu.cms.modules.sys.utils.DictUtils;
+import com.baidu.cms.base.modules.sys.utils.DictUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;

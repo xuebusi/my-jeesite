@@ -8,8 +8,8 @@ import java.util.List;
 import com.baidu.cms.common.utils.Collections3;
 import com.baidu.cms.common.utils.SpringContextHolder;
 import com.baidu.cms.common.utils.StringUtils;
-import com.baidu.cms.modules.sys.entity.Role;
-import com.baidu.cms.modules.sys.service.SystemService;
+import com.baidu.cms.base.modules.sys.entity.Role;
+import com.baidu.cms.base.modules.sys.service.SystemService;
 import com.google.common.collect.Lists;
 
 /**

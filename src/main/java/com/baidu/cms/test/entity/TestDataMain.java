@@ -4,9 +4,9 @@
 package com.baidu.cms.test.entity;
 
 import com.baidu.cms.common.persistence.DataEntity;
-import com.baidu.cms.modules.sys.entity.Area;
-import com.baidu.cms.modules.sys.entity.Office;
-import com.baidu.cms.modules.sys.entity.User;
+import com.baidu.cms.base.modules.sys.entity.Area;
+import com.baidu.cms.base.modules.sys.entity.Office;
+import com.baidu.cms.base.modules.sys.entity.User;
 import org.hibernate.validator.constraints.Length;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;

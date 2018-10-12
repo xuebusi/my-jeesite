@@ -3,8 +3,8 @@
  */
 package com.baidu.cms.common.persistence;
 
-import com.baidu.cms.modules.sys.entity.User;
-import com.baidu.cms.modules.sys.utils.UserUtils;
+import com.baidu.cms.base.modules.sys.entity.User;
+import com.baidu.cms.base.modules.sys.utils.UserUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Maps;
 import com.baidu.cms.common.config.Global;

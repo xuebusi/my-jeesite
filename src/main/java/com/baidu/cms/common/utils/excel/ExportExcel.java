@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.baidu.cms.common.utils.Encodes;
 import com.baidu.cms.common.utils.Reflections;
-import com.baidu.cms.modules.sys.utils.DictUtils;
+import com.baidu.cms.base.modules.sys.utils.DictUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;

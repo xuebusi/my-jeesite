@@ -6,8 +6,8 @@ package com.baidu.cms.common.service;
 import java.util.List;
 
 import com.baidu.cms.common.persistence.BaseEntity;
-import com.baidu.cms.modules.sys.entity.Role;
-import com.baidu.cms.modules.sys.entity.User;
+import com.baidu.cms.base.modules.sys.entity.Role;
+import com.baidu.cms.base.modules.sys.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;

@@ -8,8 +8,8 @@ import java.util.Map;
 
 import javax.xml.bind.annotation.XmlTransient;
 
-import com.baidu.cms.modules.sys.entity.User;
-import com.baidu.cms.modules.sys.utils.UserUtils;
+import com.baidu.cms.base.modules.sys.entity.User;
+import com.baidu.cms.base.modules.sys.utils.UserUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
